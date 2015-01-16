@@ -23,12 +23,12 @@ import java.util.ArrayList;
  */
 public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 //    public SkeletonRenderer renderer;
-    public PolygonSpriteBatch batch;
+//    public PolygonSpriteBatch batch;
 
     public OrthographicCamera camera;
     public Viewport viewport;
 
-    public CustomSprite foreground;
+    public CustomSprite midBg;
     public CustomSprite bg;
 
     public float xAccel=0, yAccel=0;
@@ -41,8 +41,8 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
     public Group foregroundGroup;
 
     public float farBgAccelSpeed=0;
-    public float midBgAccelSpeed=0;
-    public float bgAccelSpeed=0;
+    public float midBgAccelSpeed =0;
+    public float bgAccelSpeed =0;
     public float foregroundAccelSpeed=0;
 
     public BaseScreen() {
@@ -52,7 +52,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         else
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p7;
 
-        batch = new PolygonSpriteBatch();
+        Global.batch = new PolygonSpriteBatch();
         Global.renderer = new SkeletonRenderer();
 
         camera = new OrthographicCamera();
@@ -167,24 +167,29 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         }
     }
 //    public void drawBg() {
+//        if (midBg!=null)
+//            midBg.getSprite().draw(batch);
 //        if (bg!=null)
 //            bg.getSprite().draw(batch);
-//        if (foreground!=null)
-//            foreground.getSprite().draw(batch);
 //    }
     public void moveByAcceleration() {
-        if (bgGroup!=null) {
-            MoveToAction bgMoveAction = new MoveToAction();
-            bgMoveAction.setPosition(xAccel * bgAccelSpeed, yAccel * bgAccelSpeed);
-            bgMoveAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
-            bgGroup.addAction(bgMoveAction);
+        if (midBgGroup !=null) {
+            MoveToAction moveToAction = new MoveToAction();
+            moveToAction.setPosition(xAccel * midBgAccelSpeed, yAccel * midBgAccelSpeed);
+            moveToAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
+            midBgGroup.addAction(moveToAction);
         }
-
+        if (bgGroup !=null) {
+            MoveToAction moveToAction = new MoveToAction();
+            moveToAction.setPosition(xAccel * bgAccelSpeed, yAccel * bgAccelSpeed);
+            moveToAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
+            bgGroup.addAction(moveToAction);
+        }
         if (foregroundGroup!=null) {
-            MoveToAction foregroundMoveAction = new MoveToAction();
-            foregroundMoveAction.setPosition(xAccel * foregroundAccelSpeed, yAccel * foregroundAccelSpeed);
-            foregroundMoveAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
-            foregroundGroup.addAction(foregroundMoveAction);
+            MoveToAction moveToAction = new MoveToAction();
+            moveToAction.setPosition(xAccel * foregroundAccelSpeed, yAccel * foregroundAccelSpeed);
+            moveToAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
+            foregroundGroup.addAction(moveToAction);
         }
     }
 }

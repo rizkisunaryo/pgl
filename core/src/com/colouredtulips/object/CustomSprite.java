@@ -22,7 +22,7 @@ public class CustomSprite extends BaseObject{
 //        this.y=y;
 
         textureRegion = new TextureRegion(new Texture(Gdx.files.internal(FileUtil.getTextureFile(fileName))));
-        setOriPos(x, y);
+//        setOriPos(x, y);
 
         setScale(scale);
         setBounds(x, y, textureRegion.getTexture().getWidth(), textureRegion.getTexture().getHeight());

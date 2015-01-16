@@ -21,4 +21,5 @@ public class Global {
     public static List<SkeletonAnimation> skeletonAnimationList = new ArrayList<SkeletonAnimation>();
 
     public static SkeletonRenderer renderer;
+    public static PolygonSpriteBatch batch;
 }

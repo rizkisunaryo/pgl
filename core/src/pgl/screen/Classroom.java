@@ -3,7 +3,8 @@ package pgl.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.colouredtulips.BaseScreen;
 import com.colouredtulips.Constants;
 import com.colouredtulips.Global;
@@ -17,10 +18,10 @@ import com.colouredtulips.object.SkeletonAnimation;
 public class Classroom extends BaseScreen {
     private SkeletonAnimation teacher;
     private SkeletonAnimation student2;
-//    private CustomSprite emptyTable;
+    private CustomSprite emptyTable;
     private SkeletonAnimation student3;
     private SkeletonAnimation student4;
-//    private CustomSprite historyBook;
+    private CustomSprite historyBook;
     private SkeletonAnimation mainGirl;
 
 
@@ -37,29 +38,40 @@ public class Classroom extends BaseScreen {
     public Classroom() {
         super();
 
-        bg = new CustomSprite("classroom_bg.png",650,341,1.5f);
-        foreground = new CustomSprite("classroom_foreground.png",
+        midBg = new CustomSprite("classroom_midBg.png",650,341,1.5f);
+        bg = new CustomSprite("classroom_bg.png",
                 Constants.STANDARD_BG_X,
                 Constants.STANDARD_BG_Y,
                 Constants.STANDARD_BG_SCALE);
 
-        teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", 5);
-        student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", 5);
-//        emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35);
-        student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing", 5);
-        student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose", 5);
-//        historyBook = new CustomSprite("classroom_book1.png", 565, 300);
-        mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", 5);
+        teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath");
+        student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath");
+        emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35);
+        student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing");
+        student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose");
+        historyBook = new CustomSprite("classroom_book1.png", 565, 300);
+        mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "walking");
+
+        midBgGroup = new Group();
+        midBgGroup.addActor(midBg);
+        stage.addActor(midBgGroup);
+        midBgAccelSpeed =15f;
 
         bgGroup = new Group();
         bgGroup.addActor(bg);
         stage.addActor(bgGroup);
-        bgAccelSpeed=15f;
+        bgAccelSpeed =10f;
+
         foregroundGroup = new Group();
-        foregroundGroup.addActor(foreground);
         foregroundGroup.addActor(teacher);
+        foregroundGroup.addActor(student2);
+        foregroundGroup.addActor(emptyTable);
+        foregroundGroup.addActor(student4);
+        foregroundGroup.addActor(student3);
+        foregroundGroup.addActor(historyBook);
+        foregroundGroup.addActor(mainGirl);
         stage.addActor(foregroundGroup);
-        foregroundAccelSpeed=10f;
+        foregroundAccelSpeed =5f;
     }
 
     @Override
@@ -73,29 +85,38 @@ public class Classroom extends BaseScreen {
 
         camera.update();
 
-        batch.begin();
-        batch.setProjectionMatrix(camera.combined);
+        Global.batch.begin();
+        Global.batch.setProjectionMatrix(camera.combined);
 
-//        foreground.setScale(2);
-//        foreground.draw(batch,1);
+        historyBook.addListener(new InputListener() {
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("touched");
+                historyBook.setTouched(true);
+                return true;
+            }
+
+            public void touchDragged (InputEvent event, float x, float y, int pointer) {
+                System.out.println("moved");
+                if (historyBook.isTouched()) {
+                    historyBook.setPosition(x,y);
+                }
+            }
+
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("released");
+            }
+        });
 
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
-
-//        drawBg();
-//        renderer.draw(batch, teacher.getSkeleton());
-//        renderer.draw(batch, student2.getSkeleton());
-////        emptyTable.getSprite().draw(batch);
-//        renderer.draw(batch, student4.getSkeleton());
-//        renderer.draw(batch, student3.getSkeleton());
-////        historyBook.getSprite().draw(batch);
-//        renderer.draw(batch, mainGirl.getSkeleton());
 
 //        Gdx.input.vibrate(1000);
         xAccel =-Gdx.input.getAccelerometerY();
         yAccel =Gdx.input.getAccelerometerX();
         moveByAcceleration();
 
-        batch.end();
+        Global.batch.end();
+
+//        System.out.println(mainGirl.getWidth()+":"+mainGirl.getHeight());
     }
 }

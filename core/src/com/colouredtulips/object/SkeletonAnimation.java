@@ -20,7 +20,7 @@ public class SkeletonAnimation extends BaseObject{
     private Skeleton skeleton;
     private AnimationState state;
 
-    public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName, float accelSpeed) {
+    public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName) {
         atlas = new TextureAtlas(Gdx.files.internal(FileUtil.getSkeletonAnimationFile(fileName+".atlas")));
         SkeletonJson json = new SkeletonJson(atlas); // This loads skeleton JSON data, which is stateless.
         json.setScale(scale); // Load the skeleton at 50% the size it was in Spine.
@@ -34,29 +34,19 @@ public class SkeletonAnimation extends BaseObject{
         if (initialAnimationName!=null)
             setAnimation(0,initialAnimationName,true);
 
-        setOriPos(x,y);
-        setAccelSpeed(accelSpeed);
+//        setOriPos(x,y);
+//        setAccelSpeed(accelSpeed);
 
         setBounds(x, y, skeletonData.getWidth(), skeletonData.getHeight());
 
-        System.out.println(skeletonData.getWidth()+":"+skeletonData.getHeight());
+//        System.out.println(skeletonData.getWidth()+":"+skeletonData.getHeight());
 
         Global.skeletonAnimationList.add(this);
-    }
-    public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName) {
-        this(fileName,scale,x,y,initialAnimationName,0);
-    }
-    public SkeletonAnimation(String fileName, float scale, float x, float y) {
-        this(fileName,scale,x,y,null);
     }
 
     @Override
     public void draw(Batch batch, float alpha){
-        Global.renderer.draw(batch, getSkeleton());
-    }
-
-    public SkeletonAnimation(String fileName, float scale) {
-        this(fileName,scale,0,0);
+        Global.renderer.draw(Global.batch, getSkeleton());
     }
 
     public TextureAtlas getAtlas() {
