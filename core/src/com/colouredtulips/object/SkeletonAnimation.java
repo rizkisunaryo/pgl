@@ -1,7 +1,6 @@
 package com.colouredtulips.object;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.colouredtulips.Global;
 import com.colouredtulips.util.FileUtil;
@@ -10,7 +9,6 @@ import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
-import com.esotericsoftware.spine.SkeletonRenderer;
 
 /**
  * Created by rizkisunaryo on 1/15/15.
@@ -20,7 +18,7 @@ public class SkeletonAnimation extends BaseObject{
     private Skeleton skeleton;
     private AnimationState state;
 
-    public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName) {
+    public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName, float accelSpeed) {
         atlas = new TextureAtlas(Gdx.files.internal(FileUtil.getSkeletonAnimationFile(fileName+".atlas")));
         SkeletonJson json = new SkeletonJson(atlas); // This loads skeleton JSON data, which is stateless.
         json.setScale(scale); // Load the skeleton at 50% the size it was in Spine.
@@ -34,19 +32,19 @@ public class SkeletonAnimation extends BaseObject{
         if (initialAnimationName!=null)
             setAnimation(0,initialAnimationName,true);
 
-//        setOriPos(x,y);
-//        setAccelSpeed(accelSpeed);
-
-        setBounds(x, y, skeletonData.getWidth(), skeletonData.getHeight());
-
-//        System.out.println(skeletonData.getWidth()+":"+skeletonData.getHeight());
+        setOriPos(x,y);
+        setAccelSpeed(accelSpeed);
 
         Global.skeletonAnimationList.add(this);
     }
-
-    @Override
-    public void draw(Batch batch, float alpha){
-        Global.renderer.draw(Global.batch, getSkeleton());
+    public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName) {
+        this(fileName,scale,x,y,initialAnimationName,0);
+    }
+    public SkeletonAnimation(String fileName, float scale, float x, float y) {
+        this(fileName,scale,x,y,null);
+    }
+    public SkeletonAnimation(String fileName, float scale) {
+        this(fileName,scale,0,0);
     }
 
     public TextureAtlas getAtlas() {

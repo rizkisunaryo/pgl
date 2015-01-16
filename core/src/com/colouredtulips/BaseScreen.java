@@ -5,45 +5,35 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.colouredtulips.object.CustomSprite;
 import com.colouredtulips.object.SkeletonAnimation;
 import com.esotericsoftware.spine.SkeletonRenderer;
 
+import java.awt.Polygon;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by rizkisunaryo on 1/14/15.
  */
 public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
-//    public SkeletonRenderer renderer;
-//    public PolygonSpriteBatch batch;
+    public PolygonSpriteBatch batch;
+    public SkeletonRenderer renderer;
 
     public OrthographicCamera camera;
-    public Viewport viewport;
+    Viewport viewport;
 
-    public CustomSprite midBg;
+    public CustomSprite foreground;
     public CustomSprite bg;
 
     public float xAccel=0, yAccel=0;
-
-
-    public Stage stage;
-    public Group farBgGroup;
-    public Group midBgGroup;
-    public Group bgGroup;
-    public Group foregroundGroup;
-
-    public float farBgAccelSpeed=0;
-    public float midBgAccelSpeed =0;
-    public float bgAccelSpeed =0;
-    public float foregroundAccelSpeed=0;
+    public float prevXAccel=0, prevYAccel=0;
 
     public BaseScreen() {
         float ratio = (float)Gdx.graphics.getWidth() / Gdx.graphics.getHeight();
@@ -52,15 +42,13 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         else
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p7;
 
-        Global.batch = new PolygonSpriteBatch();
-        Global.renderer = new SkeletonRenderer();
+        batch = new PolygonSpriteBatch();
+        renderer = new SkeletonRenderer();
 
         camera = new OrthographicCamera();
         viewport = new StretchViewport(Global.worldVirtualWidth,Global.worldVirtualHeight,camera);
         viewport.apply();
         camera.position.set(Global.worldVirtualWidth / 2, Global.worldVirtualHeight / 2, 0);
-
-        stage = new Stage(viewport);
 
         Gdx.input.setInputProcessor(this);
     }
@@ -84,7 +72,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
     @Override
     public void resize(int width, int height) {
         viewport.update(width,height);
-        camera.position.set(Global.worldVirtualWidth/2,Global.worldVirtualHeight/2,0);
+        camera.position.set(Global.worldVirtualWidth/2,Constants.WORLD_VIRTUAL_HEIGHT/2,0);
     }
 
     @Override
@@ -109,9 +97,10 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 
     @Override
     public void dispose() {
-        for (Texture texture : Global.textureList)
-            texture.dispose();
-        Global.textureList = new ArrayList<Texture>();
+        for (CustomSprite customSprite : Global.customSpriteList) {
+            customSprite.getSprite().getTexture().dispose();
+        }
+        Global.customSpriteList=new ArrayList<CustomSprite>();
         Global.skeletonAnimationList=new ArrayList<SkeletonAnimation>();
     }
 
@@ -166,30 +155,33 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
             skeletonAnimation.applyAnimation();
         }
     }
-//    public void drawBg() {
-//        if (midBg!=null)
-//            midBg.getSprite().draw(batch);
-//        if (bg!=null)
-//            bg.getSprite().draw(batch);
-//    }
+    public void drawBg() {
+        if (bg!=null)
+            bg.getSprite().draw(batch);
+        if (foreground!=null)
+            foreground.getSprite().draw(batch);
+    }
     public void moveByAcceleration() {
-        if (midBgGroup !=null) {
-            MoveToAction moveToAction = new MoveToAction();
-            moveToAction.setPosition(xAccel * midBgAccelSpeed, yAccel * midBgAccelSpeed);
-            moveToAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
-            midBgGroup.addAction(moveToAction);
+//        if (prevXAccel!=xAccel)
+
+        if (bg!=null)
+            bg.setPosition(bg.getOriX() + xAccel * 15, bg.getOriY() + yAccel * 15);
+        if (foreground!=null)
+            foreground.setPosition(foreground.getOriX() + xAccel * 10, foreground.getOriY() + yAccel * 10);
+
+        for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
+            if (skeletonAnimation.getAccelSpeed()!=0)
+                skeletonAnimation.setPosition(skeletonAnimation.getOriX()+ xAccel*skeletonAnimation.getAccelSpeed(),
+                        skeletonAnimation.getOriY()+ yAccel *skeletonAnimation.getAccelSpeed());
         }
-        if (bgGroup !=null) {
-            MoveToAction moveToAction = new MoveToAction();
-            moveToAction.setPosition(xAccel * bgAccelSpeed, yAccel * bgAccelSpeed);
-            moveToAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
-            bgGroup.addAction(moveToAction);
+
+        for (CustomSprite customSprite : Global.customSpriteList) {
+            if (customSprite.getAccelSpeed()!=0)
+                customSprite.setPosition(customSprite.getOriX()+ xAccel*customSprite.getAccelSpeed(),
+                        customSprite.getOriY()+ yAccel *customSprite.getAccelSpeed());
         }
-        if (foregroundGroup!=null) {
-            MoveToAction moveToAction = new MoveToAction();
-            moveToAction.setPosition(xAccel * foregroundAccelSpeed, yAccel * foregroundAccelSpeed);
-            moveToAction.setDuration(Constants.WORLD_ACCELEROMETER_INTERVAL);
-            foregroundGroup.addAction(moveToAction);
-        }
+
+        prevXAccel=xAccel;
+        prevYAccel=yAccel;
     }
 }

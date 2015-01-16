@@ -1,67 +1,38 @@
 package com.colouredtulips.object;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
-
 /**
  * Created by rizkisunaryo on 1/15/15.
  */
-public class BaseObject extends Actor{
-    private boolean isTouched;
-    private boolean isMoved;
-    private boolean isDragged;
+public class BaseObject {
+    private float oriX;
+    private float oriY;
+    private float accelSpeed=0;
 
-    public boolean isTouched() {
-        return isTouched;
+    public float getAccelSpeed() {
+        return accelSpeed;
     }
 
-    public void setTouched(boolean isTouched) {
-        this.isTouched = isTouched;
+    public void setAccelSpeed(float accelSpeed) {
+        this.accelSpeed = accelSpeed;
     }
 
-    public boolean isMoved() {
-        return isMoved;
+    public float getOriX() {
+        return oriX;
     }
 
-    public void setMoved(boolean isMoved) {
-        this.isMoved = isMoved;
+    public void setOriX(float oriX) {
+        this.oriX = oriX;
     }
 
-    public boolean isDragged() {
-        return isDragged;
+    public float getOriY() {
+        return oriY;
     }
 
-    public void setDragged(boolean isDragged) {
-        this.isDragged = isDragged;
+    public void setOriY(float oriY) {
+        this.oriY = oriY;
     }
-    //    private float oriX;
-//    private float oriY;
-//    private float accelSpeed=0;
-//
-//    public float getAccelSpeed() {
-//        return accelSpeed;
-//    }
-//
-//    public void setAccelSpeed(float accelSpeed) {
-//        this.accelSpeed = accelSpeed;
-//    }
-//
-//    public float getOriX() {
-//        return oriX;
-//    }
-//
-//    public void setOriX(float oriX) {
-//        this.oriX = oriX;
-//    }
-//
-//    public float getOriY() {
-//        return oriY;
-//    }
-//
-//    public void setOriY(float oriY) {
-//        this.oriY = oriY;
-//    }
-//
-//    public void setOriPos(float x, float y) {
-//        oriX=x; oriY=y;
-//    }
+
+    public void setOriPos(float x, float y) {
+        oriX=x; oriY=y;
+    }
 }
