@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * Created by rizkisunaryo on 1/14/15.
  */
 public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
-    public SkeletonRenderer renderer;
+//    public SkeletonRenderer renderer;
     public PolygonSpriteBatch batch;
 
     public OrthographicCamera camera;
@@ -53,7 +53,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p7;
 
         batch = new PolygonSpriteBatch();
-        renderer = new SkeletonRenderer();
+        Global.renderer = new SkeletonRenderer();
 
         camera = new OrthographicCamera();
         viewport = new StretchViewport(Global.worldVirtualWidth,Global.worldVirtualHeight,camera);

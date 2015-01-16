@@ -1,6 +1,7 @@
 package com.colouredtulips.object;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.colouredtulips.Global;
 import com.colouredtulips.util.FileUtil;
@@ -9,6 +10,7 @@ import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
+import com.esotericsoftware.spine.SkeletonRenderer;
 
 /**
  * Created by rizkisunaryo on 1/15/15.
@@ -35,6 +37,10 @@ public class SkeletonAnimation extends BaseObject{
         setOriPos(x,y);
         setAccelSpeed(accelSpeed);
 
+        setBounds(x, y, skeletonData.getWidth(), skeletonData.getHeight());
+
+        System.out.println(skeletonData.getWidth()+":"+skeletonData.getHeight());
+
         Global.skeletonAnimationList.add(this);
     }
     public SkeletonAnimation(String fileName, float scale, float x, float y, String initialAnimationName) {
@@ -43,6 +49,12 @@ public class SkeletonAnimation extends BaseObject{
     public SkeletonAnimation(String fileName, float scale, float x, float y) {
         this(fileName,scale,x,y,null);
     }
+
+    @Override
+    public void draw(Batch batch, float alpha){
+        Global.renderer.draw(batch, getSkeleton());
+    }
+
     public SkeletonAnimation(String fileName, float scale) {
         this(fileName,scale,0,0);
     }

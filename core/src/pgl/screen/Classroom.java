@@ -17,10 +17,10 @@ import com.colouredtulips.object.SkeletonAnimation;
 public class Classroom extends BaseScreen {
     private SkeletonAnimation teacher;
     private SkeletonAnimation student2;
-    private CustomSprite emptyTable;
+//    private CustomSprite emptyTable;
     private SkeletonAnimation student3;
     private SkeletonAnimation student4;
-    private CustomSprite historyBook;
+//    private CustomSprite historyBook;
     private SkeletonAnimation mainGirl;
 
 
@@ -45,10 +45,10 @@ public class Classroom extends BaseScreen {
 
         teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", 5);
         student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", 5);
-        emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35);
+//        emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35);
         student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing", 5);
         student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose", 5);
-        historyBook = new CustomSprite("classroom_book1.png", 565, 300);
+//        historyBook = new CustomSprite("classroom_book1.png", 565, 300);
         mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", 5);
 
         bgGroup = new Group();
@@ -57,6 +57,7 @@ public class Classroom extends BaseScreen {
         bgAccelSpeed=15f;
         foregroundGroup = new Group();
         foregroundGroup.addActor(foreground);
+        foregroundGroup.addActor(teacher);
         stage.addActor(foregroundGroup);
         foregroundAccelSpeed=10f;
     }
@@ -82,13 +83,13 @@ public class Classroom extends BaseScreen {
         stage.draw();
 
 //        drawBg();
-        renderer.draw(batch, teacher.getSkeleton());
-        renderer.draw(batch, student2.getSkeleton());
-//        emptyTable.getSprite().draw(batch);
-        renderer.draw(batch, student4.getSkeleton());
-        renderer.draw(batch, student3.getSkeleton());
-//        historyBook.getSprite().draw(batch);
-        renderer.draw(batch, mainGirl.getSkeleton());
+//        renderer.draw(batch, teacher.getSkeleton());
+//        renderer.draw(batch, student2.getSkeleton());
+////        emptyTable.getSprite().draw(batch);
+//        renderer.draw(batch, student4.getSkeleton());
+//        renderer.draw(batch, student3.getSkeleton());
+////        historyBook.getSprite().draw(batch);
+//        renderer.draw(batch, mainGirl.getSkeleton());
 
 //        Gdx.input.vibrate(1000);
         xAccel =-Gdx.input.getAccelerometerY();
