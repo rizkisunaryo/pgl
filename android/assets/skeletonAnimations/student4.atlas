@@ -1,0 +1,258 @@
+
+student4.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Student4/Body-copy
+  rotate: false
+  xy: 1048, 574
+  size: 310, 436
+  orig: 310, 436
+  offset: 0, 0
+  index: -1
+Student4/Chair
+  rotate: false
+  xy: 2, 420
+  size: 337, 590
+  orig: 337, 590
+  offset: 0, 0
+  index: -1
+Student4/Left-hand-copy-2
+  rotate: true
+  xy: 1824, 636
+  size: 374, 222
+  orig: 374, 222
+  offset: 0, 0
+  index: -1
+Student4/Right-hand-copy
+  rotate: true
+  xy: 1824, 636
+  size: 374, 222
+  orig: 374, 222
+  offset: 0, 0
+  index: -1
+Student4/Neck-copy
+  rotate: false
+  xy: 1111, 398
+  size: 173, 174
+  orig: 173, 174
+  offset: 0, 0
+  index: -1
+Student4/eye
+  rotate: false
+  xy: 1556, 452
+  size: 175, 50
+  orig: 175, 50
+  offset: 0, 0
+  index: -1
+Student4/eye-brown
+  rotate: true
+  xy: 1804, 827
+  size: 183, 18
+  orig: 183, 18
+  offset: 0, 0
+  index: -1
+Student4/eye-lips
+  rotate: false
+  xy: 1359, 380
+  size: 174, 47
+  orig: 174, 47
+  offset: 0, 0
+  index: -1
+Student4/eyeball
+  rotate: true
+  xy: 2017, 492
+  size: 142, 29
+  orig: 142, 29
+  offset: 0, 0
+  index: -1
+Student4/face
+  rotate: false
+  xy: 2, 26
+  size: 328, 392
+  orig: 328, 392
+  offset: 0, 0
+  index: -1
+Student4/hair
+  rotate: false
+  xy: 341, 234
+  size: 368, 261
+  orig: 368, 261
+  offset: 0, 0
+  index: -1
+Student4/left-Upper-Leg-copy-5
+  rotate: false
+  xy: 1360, 504
+  size: 462, 220
+  orig: 462, 220
+  offset: 0, 0
+  index: -1
+Student4/left_hand
+  rotate: true
+  xy: 951, 372
+  size: 179, 158
+  orig: 179, 158
+  offset: 0, 0
+  index: -1
+Student4/right_hand
+  rotate: true
+  xy: 951, 372
+  size: 179, 158
+  orig: 179, 158
+  offset: 0, 0
+  index: -1
+Student4/left_hand_lower
+  rotate: false
+  xy: 711, 359
+  size: 238, 192
+  orig: 238, 192
+  offset: 0, 0
+  index: -1
+Student4/right_hand_lower
+  rotate: false
+  xy: 711, 359
+  size: 238, 192
+  orig: 238, 192
+  offset: 0, 0
+  index: -1
+Student4/left_leg_lower
+  rotate: true
+  xy: 332, 84
+  size: 148, 417
+  orig: 148, 417
+  offset: 0, 0
+  index: -1
+Student4/right_leg_lower
+  rotate: true
+  xy: 332, 84
+  size: 148, 417
+  orig: 148, 417
+  offset: 0, 0
+  index: -1
+Student4/left_shoe
+  rotate: true
+  xy: 751, 121
+  size: 236, 178
+  orig: 236, 178
+  offset: 0, 0
+  index: -1
+Student4/right_shoe
+  rotate: true
+  xy: 751, 121
+  size: 236, 178
+  orig: 236, 178
+  offset: 0, 0
+  index: -1
+Student4/mouth
+  rotate: false
+  xy: 2, 2
+  size: 70, 22
+  orig: 70, 22
+  offset: 0, 0
+  index: -1
+Student4/mouth-open
+  rotate: true
+  xy: 711, 286
+  size: 71, 37
+  orig: 71, 37
+  offset: 0, 0
+  index: -1
+Student4/mouth_laugh
+  rotate: true
+  xy: 1733, 370
+  size: 132, 89
+  orig: 132, 89
+  offset: 0, 0
+  index: -1
+Student4/nose
+  rotate: false
+  xy: 726, 47
+  size: 23, 35
+  orig: 23, 35
+  offset: 0, 0
+  index: -1
+Student4/right-Upper-Leg
+  rotate: false
+  xy: 1360, 726
+  size: 442, 284
+  orig: 442, 284
+  offset: 0, 0
+  index: -1
+images/Layer 0
+  rotate: false
+  xy: 1824, 392
+  size: 94, 65
+  orig: 94, 65
+  offset: 0, 0
+  index: -1
+images/colourpencil
+  rotate: false
+  xy: 1920, 407
+  size: 67, 50
+  orig: 67, 50
+  offset: 0, 0
+  index: -1
+images/colourpencil_01
+  rotate: false
+  xy: 751, 96
+  size: 77, 23
+  orig: 77, 23
+  offset: 0, 0
+  index: -1
+images/colourpencil_02
+  rotate: true
+  xy: 1804, 748
+  size: 77, 12
+  orig: 77, 12
+  offset: 0, 0
+  index: -1
+images/drawing_full
+  rotate: false
+  xy: 332, 9
+  size: 195, 73
+  orig: 195, 73
+  offset: 0, 0
+  index: -1
+images/drawing_half
+  rotate: false
+  xy: 529, 9
+  size: 195, 73
+  orig: 195, 73
+  offset: 0, 0
+  index: -1
+images/hand_drawing
+  rotate: true
+  xy: 1824, 459
+  size: 175, 191
+  orig: 175, 191
+  offset: 0, 0
+  index: -1
+images/paper_1
+  rotate: true
+  xy: 1286, 379
+  size: 193, 71
+  orig: 193, 71
+  offset: 0, 0
+  index: -1
+images/paper_2
+  rotate: false
+  xy: 1359, 429
+  size: 195, 73
+  orig: 195, 73
+  offset: 0, 0
+  index: -1
+images/tablebottom
+  rotate: false
+  xy: 710, 553
+  size: 336, 457
+  orig: 336, 457
+  offset: 0, 0
+  index: -1
+images/tabletop
+  rotate: false
+  xy: 341, 497
+  size: 367, 513
+  orig: 367, 513
+  offset: 0, 0
+  index: -1

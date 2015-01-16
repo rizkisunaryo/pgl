@@ -1,0 +1,209 @@
+
+student3.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Chair
+  rotate: false
+  xy: 1412, 432
+  size: 337, 590
+  orig: 337, 590
+  offset: 0, 0
+  index: -1
+Head
+  rotate: true
+  xy: 972, 62
+  size: 362, 396
+  orig: 362, 396
+  offset: 0, 0
+  index: -1
+Mouth
+  rotate: true
+  xy: 946, 295
+  size: 71, 24
+  orig: 71, 24
+  offset: 0, 0
+  index: -1
+Mouth_open
+  rotate: true
+  xy: 2024, 628
+  size: 70, 22
+  orig: 70, 22
+  offset: 0, 0
+  index: -1
+Table_backlegs
+  rotate: false
+  xy: 972, 426
+  size: 438, 596
+  orig: 438, 596
+  offset: 0, 0
+  index: -1
+close book
+  rotate: true
+  xy: 894, 22
+  size: 143, 62
+  orig: 143, 62
+  offset: 0, 0
+  index: -1
+collar
+  rotate: false
+  xy: 1929, 83
+  size: 77, 144
+  orig: 77, 144
+  offset: 0, 0
+  index: -1
+dress
+  rotate: false
+  xy: 482, 368
+  size: 488, 654
+  orig: 488, 654
+  offset: 0, 0
+  index: -1
+eye-ball
+  rotate: false
+  xy: 230, 15
+  size: 162, 33
+  orig: 162, 33
+  offset: 0, 0
+  index: -1
+eye_lips
+  rotate: true
+  xy: 1966, 468
+  size: 230, 56
+  orig: 230, 56
+  offset: 0, 0
+  index: -1
+eyebrown
+  rotate: true
+  xy: 1999, 252
+  size: 214, 20
+  orig: 214, 20
+  offset: 0, 0
+  index: -1
+eyes
+  rotate: false
+  xy: 2, 2
+  size: 226, 46
+  orig: 226, 46
+  offset: 0, 0
+  index: -1
+flip 1
+  rotate: true
+  xy: 1966, 250
+  size: 216, 31
+  orig: 216, 31
+  offset: 0, 0
+  index: -1
+flip 2
+  rotate: true
+  xy: 894, 167
+  size: 199, 50
+  orig: 199, 50
+  offset: 0, 0
+  index: -1
+flip3
+  rotate: false
+  xy: 726, 13
+  size: 149, 52
+  orig: 149, 52
+  offset: 0, 0
+  index: -1
+hair_left
+  rotate: false
+  xy: 726, 67
+  size: 166, 299
+  orig: 166, 299
+  offset: 0, 0
+  index: -1
+hair_right
+  rotate: false
+  xy: 1370, 37
+  size: 161, 132
+  orig: 161, 132
+  offset: 0, 0
+  index: -1
+hair_upper
+  rotate: false
+  xy: 2, 50
+  size: 398, 301
+  orig: 398, 301
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: true
+  xy: 1739, 11
+  size: 107, 177
+  orig: 107, 177
+  offset: 0, 0
+  index: -1
+left_hand_lower
+  rotate: false
+  xy: 1370, 171
+  size: 149, 253
+  orig: 149, 253
+  offset: 0, 0
+  index: -1
+left_leg_lower
+  rotate: true
+  xy: 1521, 190
+  size: 240, 201
+  orig: 240, 201
+  offset: 0, 0
+  index: -1
+right_leg_lower
+  rotate: true
+  xy: 1521, 190
+  size: 240, 201
+  orig: 240, 201
+  offset: 0, 0
+  index: -1
+left_upper_arm
+  rotate: false
+  xy: 402, 29
+  size: 322, 322
+  orig: 322, 322
+  offset: 0, 0
+  index: -1
+lower_dress
+  rotate: false
+  xy: 1751, 700
+  size: 290, 322
+  orig: 290, 322
+  offset: 0, 0
+  index: -1
+open book
+  rotate: false
+  xy: 1533, 57
+  size: 204, 131
+  orig: 204, 131
+  offset: 0, 0
+  index: -1
+right-upper-arm
+  rotate: true
+  xy: 1751, 344
+  size: 354, 213
+  orig: 354, 213
+  offset: 0, 0
+  index: -1
+right_hand
+  rotate: false
+  xy: 1739, 120
+  size: 188, 107
+  orig: 188, 107
+  offset: 0, 0
+  index: -1
+right_hand_lower
+  rotate: false
+  xy: 1724, 229
+  size: 240, 113
+  orig: 240, 113
+  offset: 0, 0
+  index: -1
+table_top_leg1_2
+  rotate: false
+  xy: 2, 353
+  size: 478, 669
+  orig: 478, 669
+  offset: 0, 0
+  index: -1

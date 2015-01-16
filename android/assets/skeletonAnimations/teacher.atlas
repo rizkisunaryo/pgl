@@ -1,0 +1,181 @@
+
+teacher.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hair_front
+  rotate: false
+  xy: 817, 768
+  size: 132, 124
+  orig: 132, 124
+  offset: 0, 0
+  index: -1
+left-feet
+  rotate: true
+  xy: 2, 164
+  size: 232, 447
+  orig: 232, 447
+  offset: 0, 0
+  index: -1
+right_feet
+  rotate: true
+  xy: 2, 164
+  size: 232, 447
+  orig: 232, 447
+  offset: 0, 0
+  index: -1
+left_lower_leg
+  rotate: true
+  xy: 504, 1314
+  size: 232, 447
+  orig: 232, 447
+  offset: 0, 0
+  index: -1
+right_lower_leg
+  rotate: true
+  xy: 504, 1314
+  size: 232, 447
+  orig: 232, 447
+  offset: 0, 0
+  index: -1
+neck
+  rotate: true
+  xy: 1865, 1782
+  size: 215, 174
+  orig: 215, 174
+  offset: 0, 0
+  index: -1
+t-eye
+  rotate: false
+  xy: 1462, 1646
+  size: 284, 84
+  orig: 284, 84
+  offset: 0, 0
+  index: -1
+t-eyeballs
+  rotate: false
+  xy: 2, 2
+  size: 191, 38
+  orig: 191, 38
+  offset: 0, 0
+  index: -1
+t-eyebrows
+  rotate: false
+  xy: 968, 1581
+  size: 246, 24
+  orig: 246, 24
+  offset: 0, 0
+  index: -1
+t-eyelip
+  rotate: true
+  xy: 731, 798
+  size: 284, 84
+  orig: 284, 84
+  offset: 0, 0
+  index: -1
+t-face
+  rotate: true
+  xy: 968, 1607
+  size: 390, 492
+  orig: 390, 492
+  offset: 0, 0
+  index: -1
+t-hair-back-color
+  rotate: true
+  xy: 2, 398
+  size: 780, 474
+  orig: 780, 474
+  offset: 0, 0
+  index: -1
+t-left-hand
+  rotate: false
+  xy: 817, 894
+  size: 129, 188
+  orig: 129, 188
+  offset: 0, 0
+  index: -1
+t-left-hand-lower
+  rotate: true
+  xy: 504, 1084
+  size: 228, 411
+  orig: 228, 411
+  offset: 0, 0
+  index: -1
+t-left-hand-upper
+  rotate: false
+  xy: 478, 360
+  size: 258, 333
+  orig: 258, 333
+  offset: 0, 0
+  index: -1
+t-mouth
+  rotate: true
+  xy: 478, 1092
+  size: 86, 24
+  orig: 86, 24
+  offset: 0, 0
+  index: -1
+t-mouth-open
+  rotate: false
+  xy: 1865, 1750
+  size: 86, 30
+  orig: 86, 30
+  offset: 0, 0
+  index: -1
+t-nose
+  rotate: false
+  xy: 384, 54
+  size: 31, 108
+  orig: 31, 108
+  offset: 0, 0
+  index: -1
+t-right-hand
+  rotate: false
+  xy: 635, 170
+  size: 129, 188
+  orig: 129, 188
+  offset: 0, 0
+  index: -1
+t-right-hand-lower
+  rotate: false
+  xy: 478, 695
+  size: 251, 387
+  orig: 251, 387
+  offset: 0, 0
+  index: -1
+t-right-hand-upper
+  rotate: true
+  xy: 1462, 1732
+  size: 265, 401
+  orig: 265, 401
+  offset: 0, 0
+  index: -1
+t-shirt-color
+  rotate: false
+  xy: 504, 1548
+  size: 462, 449
+  orig: 462, 449
+  offset: 0, 0
+  index: -1
+t-skirt-color
+  rotate: false
+  xy: 2, 1180
+  size: 500, 817
+  orig: 500, 817
+  offset: 0, 0
+  index: -1
+t-spectacles-color
+  rotate: false
+  xy: 2, 42
+  size: 380, 120
+  orig: 380, 120
+  offset: 0, 0
+  index: -1
+t-upper-hair
+  rotate: false
+  xy: 451, 173
+  size: 182, 185
+  orig: 182, 185
+  offset: 0, 0
+  index: -1

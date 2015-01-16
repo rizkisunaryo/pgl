@@ -1,0 +1,181 @@
+
+main_school_girl.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Student(main)/face1
+  rotate: false
+  xy: 865, 634
+  size: 350, 380
+  orig: 350, 380
+  offset: 0, 0
+  index: -1
+Student(main)/kid-collar
+  rotate: false
+  xy: 613, 373
+  size: 197, 174
+  orig: 197, 174
+  offset: 0, 0
+  index: -1
+Student(main)/kid-eye
+  rotate: false
+  xy: 2, 2
+  size: 254, 74
+  orig: 254, 74
+  offset: 0, 0
+  index: -1
+Student(main)/kid-eye-close
+  rotate: true
+  xy: 373, 256
+  size: 254, 74
+  orig: 254, 74
+  offset: 0, 0
+  index: -1
+Student(main)/kid-eyeballs
+  rotate: false
+  xy: 774, 238
+  size: 186, 43
+  orig: 186, 43
+  offset: 0, 0
+  index: -1
+Student(main)/kid-eyebrows
+  rotate: false
+  xy: 774, 283
+  size: 212, 25
+  orig: 212, 25
+  offset: 0, 0
+  index: -1
+Student(main)/kid-hair-back-copy
+  rotate: false
+  xy: 1217, 746
+  size: 401, 268
+  orig: 401, 268
+  offset: 0, 0
+  index: -1
+Student(main)/kid-hair-upper
+  rotate: false
+  xy: 2, 512
+  size: 416, 502
+  orig: 416, 502
+  offset: 0, 0
+  index: -1
+Student(main)/kid-left-arm-lower
+  rotate: true
+  xy: 812, 310
+  size: 107, 244
+  orig: 107, 244
+  offset: 0, 0
+  index: -1
+Student(main)/kid-left-arm-upper
+  rotate: true
+  xy: 1620, 641
+  size: 185, 270
+  orig: 185, 270
+  offset: 0, 0
+  index: -1
+Student(main)/kid-left-hand
+  rotate: false
+  xy: 373, 102
+  size: 119, 152
+  orig: 119, 152
+  offset: 0, 0
+  index: -1
+Student(main)/kid-left-leg_lower
+  rotate: true
+  xy: 1217, 628
+  size: 116, 283
+  orig: 116, 283
+  offset: 0, 0
+  index: -1
+Student(main)/kid-left-leg_upper
+  rotate: false
+  xy: 449, 294
+  size: 162, 253
+  orig: 162, 253
+  offset: 0, 0
+  index: -1
+Student(main)/kid-right-leg_upper
+  rotate: false
+  xy: 449, 294
+  size: 162, 253
+  orig: 162, 253
+  offset: 0, 0
+  index: -1
+Student(main)/kid-left-shoe
+  rotate: true
+  xy: 1892, 636
+  size: 190, 149
+  orig: 190, 149
+  offset: 0, 0
+  index: -1
+Student(main)/kid-right-shoe
+  rotate: true
+  xy: 1892, 636
+  size: 190, 149
+  orig: 190, 149
+  offset: 0, 0
+  index: -1
+Student(main)/kid-mouth
+  rotate: false
+  xy: 1502, 726
+  size: 66, 18
+  orig: 66, 18
+  offset: 0, 0
+  index: -1
+Student(main)/kid-mouth-open
+  rotate: true
+  xy: 1150, 552
+  size: 80, 50
+  orig: 80, 50
+  offset: 0, 0
+  index: -1
+Student(main)/kid-nose
+  rotate: false
+  xy: 258, 46
+  size: 28, 30
+  orig: 28, 30
+  offset: 0, 0
+  index: -1
+Student(main)/kid-right-arm-lower
+  rotate: true
+  xy: 812, 419
+  size: 103, 249
+  orig: 103, 249
+  offset: 0, 0
+  index: -1
+Student(main)/kid-right-arm-upper
+  rotate: true
+  xy: 1620, 828
+  size: 186, 402
+  orig: 186, 402
+  offset: 0, 0
+  index: -1
+Student(main)/kid-right-hand
+  rotate: true
+  xy: 613, 268
+  size: 103, 159
+  orig: 103, 159
+  offset: 0, 0
+  index: -1
+Student(main)/kid-right-leg_lower
+  rotate: true
+  xy: 865, 524
+  size: 108, 283
+  orig: 108, 283
+  offset: 0, 0
+  index: -1
+Student(main)/skirt
+  rotate: false
+  xy: 420, 549
+  size: 443, 465
+  orig: 443, 465
+  offset: 0, 0
+  index: -1
+Student(main)/torso
+  rotate: true
+  xy: 2, 78
+  size: 432, 369
+  orig: 432, 369
+  offset: 0, 0
+  index: -1

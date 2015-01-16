@@ -1,0 +1,181 @@
+
+student2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Chair
+  rotate: false
+  xy: 490, 1442
+  size: 337, 590
+  orig: 337, 590
+  offset: 0, 0
+  index: -1
+Eyes
+  rotate: true
+  xy: 1939, 1860
+  size: 172, 46
+  orig: 172, 46
+  offset: 0, 0
+  index: -1
+Hair
+  rotate: true
+  xy: 2, 2
+  size: 391, 289
+  orig: 391, 289
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 1111, 1610
+  size: 388, 422
+  orig: 388, 422
+  offset: 0, 0
+  index: -1
+book2
+  rotate: false
+  xy: 1467, 1374
+  size: 316, 127
+  orig: 316, 127
+  offset: 0, 0
+  index: -1
+collar
+  rotate: false
+  xy: 293, 219
+  size: 173, 174
+  orig: 173, 174
+  offset: 0, 0
+  index: -1
+eye_ball
+  rotate: true
+  xy: 1351, 1247
+  size: 134, 30
+  orig: 134, 30
+  offset: 0, 0
+  index: -1
+eye_lips
+  rotate: true
+  xy: 1987, 1861
+  size: 171, 46
+  orig: 171, 46
+  offset: 0, 0
+  index: -1
+eyebrown
+  rotate: true
+  xy: 480, 1249
+  size: 186, 21
+  orig: 186, 21
+  offset: 0, 0
+  index: -1
+left_arm_lower
+  rotate: false
+  xy: 1096, 1228
+  size: 253, 153
+  orig: 253, 153
+  offset: 0, 0
+  index: -1
+left_arm_upper
+  rotate: false
+  xy: 829, 1278
+  size: 265, 218
+  orig: 265, 218
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: true
+  xy: 468, 251
+  size: 159, 135
+  orig: 159, 135
+  offset: 0, 0
+  index: -1
+left_lower_leg
+  rotate: false
+  xy: 829, 1498
+  size: 280, 534
+  orig: 280, 534
+  offset: 0, 0
+  index: -1
+left_upper_leg
+  rotate: false
+  xy: 1501, 1503
+  size: 463, 217
+  orig: 463, 217
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 468, 230
+  size: 86, 19
+  orig: 86, 19
+  offset: 0, 0
+  index: -1
+mouth-open
+  rotate: false
+  xy: 293, 41
+  size: 71, 37
+  orig: 71, 37
+  offset: 0, 0
+  index: -1
+nose
+  rotate: false
+  xy: 1467, 1571
+  size: 32, 37
+  orig: 32, 37
+  offset: 0, 0
+  index: -1
+right_arm_lower
+  rotate: false
+  xy: 1785, 1359
+  size: 193, 142
+  orig: 193, 142
+  offset: 0, 0
+  index: -1
+right_arm_upper
+  rotate: false
+  xy: 1111, 1383
+  size: 354, 225
+  orig: 354, 225
+  offset: 0, 0
+  index: -1
+right_hand
+  rotate: false
+  xy: 293, 80
+  size: 167, 137
+  orig: 167, 137
+  offset: 0, 0
+  index: -1
+right_lower_leg
+  rotate: false
+  xy: 2, 395
+  size: 340, 498
+  orig: 340, 498
+  offset: 0, 0
+  index: -1
+right_upper_leg
+  rotate: true
+  xy: 344, 412
+  size: 481, 234
+  orig: 481, 234
+  offset: 0, 0
+  index: -1
+table_bottom
+  rotate: true
+  xy: 2, 895
+  size: 540, 476
+  orig: 540, 476
+  offset: 0, 0
+  index: -1
+table_top
+  rotate: false
+  xy: 2, 1437
+  size: 486, 595
+  orig: 486, 595
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 1501, 1722
+  size: 310, 436
+  orig: 310, 436
+  offset: 0, 0
+  index: -1
