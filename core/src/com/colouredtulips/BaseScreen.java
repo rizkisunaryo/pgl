@@ -34,8 +34,6 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 
     private float xAccel=0, yAccel=0;
     private float prevXAccel=0, prevYAccel=0;
-    private float xDistancePerStep,yDistancePerStep;
-    private float actionPercent=0;
 
     public BaseScreen() {
         float ratio = (float)Gdx.graphics.getWidth() / Gdx.graphics.getHeight();
@@ -195,8 +193,8 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 
         for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
             if (skeletonAnimation.getAccelSpeed()!=0)
-                skeletonAnimation.moveTo(skeletonAnimation.getCurX()+ xDistancePerStep*skeletonAnimation.getAccelSpeed(),
-                        skeletonAnimation.getCurY()+ yDistancePerStep *skeletonAnimation.getAccelSpeed(),
+                skeletonAnimation.moveTo(skeletonAnimation.getCurX()+ xAccel*skeletonAnimation.getAccelSpeed(),
+                        skeletonAnimation.getCurY()+ yAccel *skeletonAnimation.getAccelSpeed(),
                         Constants.ACCELERATION_INTERVAL);
         }
 

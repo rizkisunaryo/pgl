@@ -72,6 +72,7 @@ public class Classroom extends BaseScreen {
 
         moveByAcceleration();
 
+
         batch.end();
     }
 }
