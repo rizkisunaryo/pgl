@@ -32,8 +32,10 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
     public CustomSprite foreground;
     public CustomSprite bg;
 
-    public float xAccel=0, yAccel=0;
-    public float prevXAccel=0, prevYAccel=0;
+    private float xAccel=0, yAccel=0;
+    private float prevXAccel=0, prevYAccel=0;
+    private float xDistancePerStep,yDistancePerStep;
+    private float actionPercent=0;
 
     public BaseScreen() {
         float ratio = (float)Gdx.graphics.getWidth() / Gdx.graphics.getHeight();
@@ -162,26 +164,47 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
             foreground.getSprite().draw(batch);
     }
     public void moveByAcceleration() {
-//        if (prevXAccel!=xAccel)
+        if (xAccel!= -Gdx.input.getAccelerometerY()
+                || yAccel!= Gdx.input.getAccelerometerX()) {
+            prevXAccel=xAccel; prevYAccel=yAccel;
+            xAccel=-Gdx.input.getAccelerometerY();
+            yAccel= Gdx.input.getAccelerometerX();
+//            xDistancePerStep = (xAccel-prevXAccel) / (Constants.ACCELERATION_INTERVAL / Gdx.graphics.getDeltaTime());
+//            yDistancePerStep = (xAccel-prevXAccel) / (Constants.ACCELERATION_INTERVAL / Gdx.graphics.getDeltaTime());
+//            actionPercent=0;
+//
+//            bg.setCurAccelStartX(bg.getX());
+//            bg.setCurAccelStartY(bg.getY());
+        }
+//        actionPercent+=Gdx.graphics.getDeltaTime()/Constants.ACCELERATION_INTERVAL;
 
-        if (bg!=null)
-            bg.setPosition(bg.getOriX() + xAccel * 15, bg.getOriY() + yAccel * 15);
-        if (foreground!=null)
-            foreground.setPosition(foreground.getOriX() + xAccel * 10, foreground.getOriY() + yAccel * 10);
+//        System.out.println(actionPercent);
+//        System.out.println(Gdx.graphics.getDeltaTime()+":"+xDistancePerStep+":"+yDistancePerStep);
+
+        if (bg!=null) {
+//            bg.setPosition(bg.getCurX() + xDistancePerStep * 15, bg.getCurY() + yDistancePerStep * 15);
+//            target.setPosition(startX + (endX - startX) * percent, startY + (endY - startY) * percent, alignment);
+//            bg.setPosition(bg.getCurAccelStartX() + ((bg.getCurX()+xAccel*15) - bg.getCurAccelStartX())* actionPercent,
+//                    bg.getCurAccelStartY() + ((bg.getCurY()+yAccel*15) - bg.getCurAccelStartY()) * actionPercent);
+            bg.moveTo(bg.getCurX()+xAccel*15,bg.getCurY()+yAccel*15,Constants.ACCELERATION_INTERVAL);
+        }
+        if (foreground!=null) {
+//            foreground.setPosition(foreground.getCurX() + xDistancePerStep * 10, foreground.getCurY() + yDistancePerStep * 10);
+            foreground.moveTo(foreground.getCurX()+xAccel*10,foreground.getCurY()+yAccel*10,Constants.ACCELERATION_INTERVAL);
+        }
 
         for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
             if (skeletonAnimation.getAccelSpeed()!=0)
-                skeletonAnimation.setPosition(skeletonAnimation.getOriX()+ xAccel*skeletonAnimation.getAccelSpeed(),
-                        skeletonAnimation.getOriY()+ yAccel *skeletonAnimation.getAccelSpeed());
+                skeletonAnimation.moveTo(skeletonAnimation.getCurX()+ xDistancePerStep*skeletonAnimation.getAccelSpeed(),
+                        skeletonAnimation.getCurY()+ yDistancePerStep *skeletonAnimation.getAccelSpeed(),
+                        Constants.ACCELERATION_INTERVAL);
         }
 
         for (CustomSprite customSprite : Global.customSpriteList) {
             if (customSprite.getAccelSpeed()!=0)
-                customSprite.setPosition(customSprite.getOriX()+ xAccel*customSprite.getAccelSpeed(),
-                        customSprite.getOriY()+ yAccel *customSprite.getAccelSpeed());
+                customSprite.moveTo(customSprite.getCurX()+ xAccel*customSprite.getAccelSpeed(),
+                        customSprite.getCurY()+ yAccel *customSprite.getAccelSpeed(),
+                        Constants.ACCELERATION_INTERVAL);
         }
-
-        prevXAccel=xAccel;
-        prevYAccel=yAccel;
     }
 }

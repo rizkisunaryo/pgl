@@ -24,7 +24,7 @@ public class CustomSprite extends BaseObject{
         sprite = new Sprite(new Texture(Gdx.files.internal(FileUtil.getTextureFile(fileName))));
         sprite.setPosition(x,y);
         sprite.setScale(scale);
-        setOriPos(x,y);
+        setCurPos(x, y);
         setAccelSpeed(accelSpeed);
 
         Global.customSpriteList.add(this);

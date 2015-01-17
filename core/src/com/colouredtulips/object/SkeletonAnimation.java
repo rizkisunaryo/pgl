@@ -32,7 +32,7 @@ public class SkeletonAnimation extends BaseObject{
         if (initialAnimationName!=null)
             setAnimation(0,initialAnimationName,true);
 
-        setOriPos(x,y);
+        setCurPos(x,y);
         setAccelSpeed(accelSpeed);
 
         Global.skeletonAnimationList.add(this);

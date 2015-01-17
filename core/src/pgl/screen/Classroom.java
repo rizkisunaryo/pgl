@@ -36,7 +36,7 @@ public class Classroom extends BaseScreen {
         foreground.setPosition(-(foreground.getWidth() - Global.worldVirtualWidth) / 2,
                 -(foreground.getHeight() - Global.worldVirtualHeight) / 2);
         foreground.setScale(1.2f);
-        foreground.setOriPos(foreground.getX(),foreground.getY());
+        foreground.setCurPos(foreground.getX(),foreground.getY());
 
         teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", 5);
         student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", 5);
@@ -70,9 +70,6 @@ public class Classroom extends BaseScreen {
         historyBook.getSprite().draw(batch);
         renderer.draw(batch, mainGirl.getSkeleton());
 
-//        Gdx.input.vibrate(1000);
-        xAccel =-Gdx.input.getAccelerometerY();
-        yAccel =Gdx.input.getAccelerometerX();
         moveByAcceleration();
 
         batch.end();
