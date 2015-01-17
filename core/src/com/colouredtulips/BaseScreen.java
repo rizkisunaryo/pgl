@@ -165,30 +165,18 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         if (xAccel!= -Gdx.input.getAccelerometerY()
                 || yAccel!= Gdx.input.getAccelerometerX()) {
             prevXAccel=xAccel; prevYAccel=yAccel;
-            xAccel=-Gdx.input.getAccelerometerY();
-            yAccel= Gdx.input.getAccelerometerX();
-//            xDistancePerStep = (xAccel-prevXAccel) / (Constants.ACCELERATION_INTERVAL / Gdx.graphics.getDeltaTime());
-//            yDistancePerStep = (xAccel-prevXAccel) / (Constants.ACCELERATION_INTERVAL / Gdx.graphics.getDeltaTime());
-//            actionPercent=0;
-//
-//            bg.setCurAccelStartX(bg.getX());
-//            bg.setCurAccelStartY(bg.getY());
-        }
-//        actionPercent+=Gdx.graphics.getDeltaTime()/Constants.ACCELERATION_INTERVAL;
 
-//        System.out.println(actionPercent);
-//        System.out.println(Gdx.graphics.getDeltaTime()+":"+xDistancePerStep+":"+yDistancePerStep);
+            float maxXAccel = Constants.MAX_ACCELERATED_X/Constants.MAX_ACCELERATION_SPEED;
+            float minXAccel = Constants.MIN_ACCELERATED_X/Constants.MAX_ACCELERATION_SPEED;
+            float maxYAccel = Constants.MAX_ACCELERATED_Y/Constants.MAX_ACCELERATION_SPEED;
+            float minYAccel = Constants.MIN_ACCELERATED_Y/Constants.MAX_ACCELERATION_SPEED;
 
-        if (bg!=null) {
-//            bg.setPosition(bg.getCurX() + xDistancePerStep * 15, bg.getCurY() + yDistancePerStep * 15);
-//            target.setPosition(startX + (endX - startX) * percent, startY + (endY - startY) * percent, alignment);
-//            bg.setPosition(bg.getCurAccelStartX() + ((bg.getCurX()+xAccel*15) - bg.getCurAccelStartX())* actionPercent,
-//                    bg.getCurAccelStartY() + ((bg.getCurY()+yAccel*15) - bg.getCurAccelStartY()) * actionPercent);
-            bg.moveTo(bg.getCurX()+xAccel*15,bg.getCurY()+yAccel*15,Constants.ACCELERATION_INTERVAL);
-        }
-        if (foreground!=null) {
-//            foreground.setPosition(foreground.getCurX() + xDistancePerStep * 10, foreground.getCurY() + yDistancePerStep * 10);
-            foreground.moveTo(foreground.getCurX()+xAccel*10,foreground.getCurY()+yAccel*10,Constants.ACCELERATION_INTERVAL);
+            xAccel= -Gdx.input.getAccelerometerY()>maxXAccel? maxXAccel :
+                    -Gdx.input.getAccelerometerY()<minXAccel? minXAccel : -Gdx.input.getAccelerometerY();
+            yAccel= Gdx.input.getAccelerometerX()>maxYAccel? maxYAccel :
+                    Gdx.input.getAccelerometerX()<minYAccel? minYAccel : Gdx.input.getAccelerometerX();
+
+//            System.out.println(yAccel+":"+maxYAccel+":"+minYAccel+":"+Gdx.input.getAccelerometerX());
         }
 
         for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {

@@ -3,6 +3,7 @@ package pgl.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.colouredtulips.BaseScreen;
+import com.colouredtulips.Constants;
 import com.colouredtulips.Global;
 import com.colouredtulips.object.CustomSprite;
 import com.colouredtulips.object.SkeletonAnimation;
@@ -31,20 +32,17 @@ public class Classroom extends BaseScreen {
     public Classroom() {
         super();
 
-        bg = new CustomSprite("classroom_midbg.png",650,341,1.5f);
-        foreground = new CustomSprite("classroom_bg.png");
-        foreground.setPosition(-(foreground.getWidth() - Global.worldVirtualWidth) / 2,
-                -(foreground.getHeight() - Global.worldVirtualHeight) / 2);
-        foreground.setScale(1.2f);
-        foreground.setCurPos(foreground.getX(),foreground.getY());
+        bg = new CustomSprite("classroom_midbg.png", 650, 341, 1.5f, Constants.MAX_ACCELERATION_SPEED);
 
-        teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", 5);
-        student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", 5);
-        emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35, 1, 5);
-        student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing", 5);
-        student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose", 5);
-        historyBook = new CustomSprite("classroom_book1.png", 565, 300, 1, 5);
-        mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", 5);
+        foreground = new CustomSprite("classroom_bg.png", Constants.STANDARD_BG_X, 0, 1.2f, Constants.MAX_ACCELERATION_SPEED/3*2);
+
+        teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", Constants.MAX_ACCELERATION_SPEED/3);
+        student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", Constants.MAX_ACCELERATION_SPEED/3);
+        emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35, 1, Constants.MAX_ACCELERATION_SPEED/3);
+        student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing", Constants.MAX_ACCELERATION_SPEED/3);
+        student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose", Constants.MAX_ACCELERATION_SPEED/3);
+        historyBook = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
+        mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", Constants.MAX_ACCELERATION_SPEED/3);
     }
 
     @Override
@@ -71,7 +69,6 @@ public class Classroom extends BaseScreen {
         renderer.draw(batch, mainGirl.getSkeleton());
 
         moveByAcceleration();
-
 
         batch.end();
     }
