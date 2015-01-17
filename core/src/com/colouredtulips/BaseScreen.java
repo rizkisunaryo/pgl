@@ -6,18 +6,14 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.colouredtulips.object.CustomSprite;
 import com.colouredtulips.object.SkeletonAnimation;
 import com.esotericsoftware.spine.SkeletonRenderer;
 
-import java.awt.Polygon;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by rizkisunaryo on 1/14/15.
@@ -28,6 +24,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 
     public OrthographicCamera camera;
     Viewport viewport;
+    public Vector3 stageVector;
 
     public CustomSprite foreground;
     public CustomSprite bg;
@@ -49,6 +46,8 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         viewport = new StretchViewport(Global.worldVirtualWidth,Global.worldVirtualHeight,camera);
         viewport.apply();
         camera.position.set(Global.worldVirtualWidth / 2, Global.worldVirtualHeight / 2, 0);
+
+        stageVector = new Vector3();
 
         Gdx.input.setInputProcessor(this);
     }
@@ -180,17 +179,21 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         }
 
         for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
-            if (skeletonAnimation.getAccelSpeed()!=0)
+            if (skeletonAnimation.getAccelSpeed()!=0 && !skeletonAnimation.isTouched())
                 skeletonAnimation.moveTo(skeletonAnimation.getCurX()+ xAccel*skeletonAnimation.getAccelSpeed(),
                         skeletonAnimation.getCurY()+ yAccel *skeletonAnimation.getAccelSpeed(),
                         Constants.ACCELERATION_INTERVAL);
+            else
+                skeletonAnimation.setMoveToTimer(0);
         }
 
         for (CustomSprite customSprite : Global.customSpriteList) {
-            if (customSprite.getAccelSpeed()!=0)
+            if (customSprite.getAccelSpeed()!=0 && !customSprite.isTouched())
                 customSprite.moveTo(customSprite.getCurX()+ xAccel*customSprite.getAccelSpeed(),
                         customSprite.getCurY()+ yAccel *customSprite.getAccelSpeed(),
                         Constants.ACCELERATION_INTERVAL);
+            else
+                customSprite.setMoveToTimer(0);
         }
     }
 }

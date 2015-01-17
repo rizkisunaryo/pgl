@@ -10,6 +10,13 @@ public class BaseObject {
     private float curY;
     private float accelSpeed=0;
 
+    private float oriX;
+    private float oriY;
+
+    private boolean isTouched;
+    private boolean isDragged;
+    private boolean isReleased;
+
     private float moveToTimer =0;
     private float moveToStartX=0;
     private float moveToStartY=0;
@@ -48,6 +55,59 @@ public class BaseObject {
     public float getX(){return 0;}
     public float getY(){return 0;}
     public void setPosition(float x, float y) {}
+
+    public boolean isTouched() {
+        return isTouched;
+    }
+
+    public void setTouched(boolean isTouched) {
+        this.isTouched = isTouched;
+    }
+
+    public boolean isDragged() {
+        return isDragged;
+    }
+
+    public void setDragged(boolean isDragged) {
+        this.isDragged = isDragged;
+    }
+
+    public boolean isReleased() {
+        return isReleased;
+    }
+
+    public void setReleased(boolean isReleased) {
+        this.isReleased = isReleased;
+    }
+
+    public float getMoveToTimer() {
+        return moveToTimer;
+    }
+
+    public void setMoveToTimer(float moveToTimer) {
+        this.moveToTimer = moveToTimer;
+    }
+
+    public float getOriX() {
+        return oriX;
+    }
+
+    public void setOriX(float oriX) {
+        this.oriX = oriX;
+    }
+
+    public float getOriY() {
+        return oriY;
+    }
+
+    public void setOriY(float oriY) {
+        this.oriY = oriY;
+    }
+
+    public void setOriPos(float x, float y) {
+        this.oriX = x;
+        this.oriY = y;
+    }
 
     public void moveTo(float toX, float toY, float t) {
         if (moveToTimer >t) {

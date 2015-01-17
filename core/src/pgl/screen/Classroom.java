@@ -2,6 +2,7 @@ package pgl.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.math.Vector3;
 import com.colouredtulips.BaseScreen;
 import com.colouredtulips.Constants;
 import com.colouredtulips.Global;
@@ -42,6 +43,7 @@ public class Classroom extends BaseScreen {
         student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing", Constants.MAX_ACCELERATION_SPEED/3);
         student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose", Constants.MAX_ACCELERATION_SPEED/3);
         historyBook = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
+        historyBook.setOriPos(historyBook.getX(),historyBook.getY());
         mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", Constants.MAX_ACCELERATION_SPEED/3);
     }
 
@@ -71,5 +73,38 @@ public class Classroom extends BaseScreen {
         moveByAcceleration();
 
         batch.end();
+    }
+
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        stageVector = camera.unproject(new Vector3(screenX,screenY,0));
+        if (historyBook.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            historyBook.setTouched(true);
+        }
+        return true;
+    }
+    @Override
+    public boolean touchDragged(int screenX, int screenY, int pointer) {
+        stageVector = camera.unproject(new Vector3(screenX,screenY,0));
+        if (historyBook.isTouched()) {
+            historyBook.setCurPos(stageVector.x,stageVector.y);
+            historyBook.setPosition(stageVector.x, stageVector.y);
+        }
+        return true;
+    }
+    @Override
+    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+        stageVector = camera.unproject(new Vector3(screenX,screenY,0));
+        if (historyBook.isTouched()) {
+            historyBook.setCurPos(historyBook.getOriX(),historyBook.getOriY());
+        }
+
+        for (CustomSprite customSprite : Global.customSpriteList) {
+            customSprite.setTouched(false);
+        }
+        for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
+            skeletonAnimation.setTouched(false);
+        }
+        return true;
     }
 }
