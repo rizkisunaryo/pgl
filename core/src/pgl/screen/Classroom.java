@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.colouredtulips.BaseScreen;
 import com.colouredtulips.Constants;
 import com.colouredtulips.Global;
+import com.colouredtulips.Main;
 import com.colouredtulips.object.CustomSprite;
 import com.colouredtulips.object.SkeletonAnimation;
 
@@ -13,6 +14,10 @@ import com.colouredtulips.object.SkeletonAnimation;
  * Created by rizkisunaryo on 1/14/15.
  */
 public class Classroom extends BaseScreen {
+    private final static float MAIN_GIRL_HEIGHT_TOLERANCE =180;
+    private final static float MAIN_GIRL_MIN_X=430;
+    private final static float MAIN_GIRL_MAX_X=1200;
+
     private SkeletonAnimation teacher;
     private SkeletonAnimation student2;
     private CustomSprite emptyTable;
@@ -37,9 +42,9 @@ public class Classroom extends BaseScreen {
     public Classroom() {
         super();
 
-        bg = new CustomSprite("classroom_midbg.png", 650, 341, 1.5f, Constants.MAX_ACCELERATION_SPEED);
+        midBg = new CustomSprite("classroom_midbg.png", 650, 341, 1.5f, Constants.MAX_ACCELERATION_SPEED);
 
-        foreground = new CustomSprite("classroom_bg.png", Constants.STANDARD_BG_X, 0, 1.2f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        bg = new CustomSprite("classroom_bg.png", Constants.STANDARD_BG_X, 0, 1.2f, Constants.MAX_ACCELERATION_SPEED/3*2);
 
         teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", Constants.MAX_ACCELERATION_SPEED/3);
         student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", Constants.MAX_ACCELERATION_SPEED/3);
@@ -49,6 +54,7 @@ public class Classroom extends BaseScreen {
         historyBook = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
         historyBook.setOriPos(historyBook.getX(),historyBook.getY());
         mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", Constants.MAX_ACCELERATION_SPEED/3);
+        mainGirl.setHeightTolerance(MAIN_GIRL_HEIGHT_TOLERANCE);
         historyBookFront = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
         historyBookFront.setOriPos(historyBookFront.getX(),historyBookFront.getY());
         historyBookFront.getSprite().setScale(0);
@@ -96,29 +102,61 @@ public class Classroom extends BaseScreen {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         stageVector = camera.unproject(new Vector3(screenX,screenY,0));
-        if (historyBook.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+
+        if (mainGirl.contains(stageVector.x,stageVector.y)) {
+            mainGirl.setTouched(true);
+        }
+        else if (historyBook.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
 //            historyBook.setTouched(true);
             historyBook.getSprite().setScale(0);
             historyBookFront.getSprite().setScale(1);
             historyBookFront.setTouched(true);
         }
+
         return true;
     }
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
         stageVector = camera.unproject(new Vector3(screenX,screenY,0));
-        if (historyBookFront.isTouched()) {
+
+        if (mainGirl.isTouched()) {
+            float x=stageVector.x>MAIN_GIRL_MAX_X? MAIN_GIRL_MAX_X :
+                    stageVector.x<MAIN_GIRL_MIN_X? MAIN_GIRL_MIN_X : stageVector.x;
+
+            if (stageVector.x<MAIN_GIRL_MIN_X || stageVector.x<prevDraggedX) {
+                mainGirl.getSkeleton().setFlipX(false);
+            }
+            else {
+                mainGirl.getSkeleton().setFlipX(true);
+            }
+
+//            System.out.println(x+":"+mainGirl.getY());
+
+            mainGirl.setCurPos(x,mainGirl.getCurY());
+            mainGirl.setPosition(x,mainGirl.getY());
+        }
+        else if (historyBookFront.isTouched()) {
             historyBookFront.setCurPos(stageVector.x,stageVector.y);
             historyBookFront.setPosition(stageVector.x, stageVector.y);
         }
+
+        prevDraggedX = stageVector.x;
+        prevDraggedY = stageVector.y;
+
         return true;
     }
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         stageVector = camera.unproject(new Vector3(screenX,screenY,0));
+
         if (historyBookFront.isTouched()) {
-            historyBookFront.setCurPos(historyBookFront.getOriX(),historyBookFront.getOriY());
-            isTimerOn=true;
+            if (mainGirl.contains(stageVector.x, stageVector.y)) {
+                Main.main.setScreen(new Palace());
+            }
+            else {
+                historyBookFront.setCurPos(historyBookFront.getOriX(), historyBookFront.getOriY());
+                isTimerOn=true;
+            }
         }
 
         for (CustomSprite customSprite : Global.customSpriteList) {

@@ -1,0 +1,132 @@
+
+soldier_facing_right.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Cloth
+  rotate: true
+  xy: 775, 878
+  size: 139, 192
+  orig: 139, 192
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 2, 16
+  size: 158, 186
+  orig: 158, 186
+  offset: 0, 0
+  index: -1
+Inner-Cloth
+  rotate: false
+  xy: 350, 770
+  size: 192, 247
+  orig: 192, 247
+  offset: 0, 0
+  index: -1
+Neck
+  rotate: false
+  xy: 969, 985
+  size: 53, 32
+  orig: 53, 32
+  offset: 0, 0
+  index: -1
+Sarung
+  rotate: false
+  xy: 544, 835
+  size: 229, 182
+  orig: 229, 182
+  offset: 0, 0
+  index: -1
+Soldier_hand_left_lower
+  rotate: true
+  xy: 307, 460
+  size: 60, 135
+  orig: 60, 135
+  offset: 0, 0
+  index: -1
+Soldier_hand_left_upper
+  rotate: false
+  xy: 190, 210
+  size: 118, 194
+  orig: 118, 194
+  offset: 0, 0
+  index: -1
+Soldier_right_hand_lower
+  rotate: false
+  xy: 307, 522
+  size: 165, 122
+  orig: 165, 122
+  offset: 0, 0
+  index: -1
+Soldier_right_hand_upper
+  rotate: true
+  xy: 350, 646
+  size: 122, 167
+  orig: 122, 167
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 775, 856
+  size: 84, 20
+  orig: 84, 20
+  offset: 0, 0
+  index: -1
+eyeball
+  rotate: true
+  xy: 307, 646
+  size: 67, 14
+  orig: 67, 14
+  offset: 0, 0
+  index: -1
+eyebrown
+  rotate: false
+  xy: 2, 2
+  size: 63, 12
+  orig: 63, 12
+  offset: 0, 0
+  index: -1
+eyelip
+  rotate: true
+  xy: 162, 115
+  size: 87, 25
+  orig: 87, 25
+  offset: 0, 0
+  index: -1
+hand_sword
+  rotate: false
+  xy: 2, 204
+  size: 186, 813
+  orig: 186, 813
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: false
+  xy: 474, 548
+  size: 55, 96
+  orig: 55, 96
+  offset: 0, 0
+  index: -1
+left_leg
+  rotate: false
+  xy: 190, 406
+  size: 115, 307
+  orig: 115, 307
+  offset: 0, 0
+  index: -1
+right_leg
+  rotate: false
+  xy: 190, 715
+  size: 158, 302
+  orig: 158, 302
+  offset: 0, 0
+  index: -1
+song-kok-
+  rotate: false
+  xy: 544, 722
+  size: 190, 111
+  orig: 190, 111
+  offset: 0, 0
+  index: -1

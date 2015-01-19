@@ -26,11 +26,17 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
     Viewport viewport;
     public Vector3 stageVector;
 
-    public CustomSprite foreground;
+    public CustomSprite midBg;
     public CustomSprite bg;
+    public CustomSprite foreground;
 
     private float xAccel=0, yAccel=0;
     private float prevXAccel=0, prevYAccel=0;
+
+    public float timer=0;
+    public boolean isTimerOn=false;
+
+    public float prevDraggedX=0, prevDraggedY=0;
 
     public BaseScreen() {
         float ratio = (float)Gdx.graphics.getWidth() / Gdx.graphics.getHeight();
@@ -155,9 +161,11 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
         }
     }
     public void drawBg() {
-        if (bg!=null)
+        if (midBg !=null)
+            midBg.getSprite().draw(batch);
+        if (bg !=null)
             bg.getSprite().draw(batch);
-        if (foreground!=null)
+        if (foreground != null)
             foreground.getSprite().draw(batch);
     }
     public void moveByAcceleration() {

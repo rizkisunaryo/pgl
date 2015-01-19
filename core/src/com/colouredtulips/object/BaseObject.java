@@ -126,6 +126,4 @@ public class BaseObject {
                 moveToStartY + (moveToEndY - moveToStartY) * percent);
 //        System.out.println(moveToTimer+":"+percent+":"+moveToStartX+":"+moveToStartY+":"+moveToEndX+":"+moveToEndY+":"+getX()+":"+getY());
     }
-
-
 }

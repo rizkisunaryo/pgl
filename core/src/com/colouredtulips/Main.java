@@ -9,9 +9,6 @@ import pgl.screen.Classroom;
  */
 public class Main extends Game {
     public static Main main;
-    public static Main getInstance() {
-        return main;
-    }
 
     @Override
     public void create () {
