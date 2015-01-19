@@ -1,0 +1,118 @@
+
+pari_congkak.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Head
+  rotate: true
+  xy: 2, 51
+  size: 291, 357
+  orig: 291, 357
+  offset: 0, 0
+  index: -1
+Left Hand
+  rotate: true
+  xy: 662, 448
+  size: 157, 279
+  orig: 157, 279
+  offset: 0, 0
+  index: -1
+Mouth
+  rotate: true
+  xy: 943, 566
+  size: 39, 9
+  orig: 39, 9
+  offset: 0, 0
+  index: -1
+Mouth open
+  rotate: false
+  xy: 397, 379
+  size: 39, 18
+  orig: 39, 18
+  offset: 0, 0
+  index: -1
+Pants
+  rotate: false
+  xy: 2, 344
+  size: 393, 261
+  orig: 393, 261
+  offset: 0, 0
+  index: -1
+Torso
+  rotate: true
+  xy: 397, 399
+  size: 206, 263
+  orig: 206, 263
+  offset: 0, 0
+  index: -1
+congkak copy
+  rotate: false
+  xy: 2, 607
+  size: 954, 415
+  orig: 954, 415
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 958, 992
+  size: 45, 30
+  orig: 45, 30
+  offset: 0, 0
+  index: -1
+eye brown
+  rotate: false
+  xy: 958, 979
+  size: 31, 11
+  orig: 31, 11
+  offset: 0, 0
+  index: -1
+eye brown copy 6
+  rotate: false
+  xy: 74, 37
+  size: 31, 12
+  orig: 31, 12
+  offset: 0, 0
+  index: -1
+eye copy 4
+  rotate: true
+  xy: 361, 297
+  size: 45, 30
+  orig: 45, 30
+  offset: 0, 0
+  index: -1
+eye lips
+  rotate: true
+  xy: 2, 2
+  size: 47, 34
+  orig: 47, 34
+  offset: 0, 0
+  index: -1
+eye lips copy 5
+  rotate: true
+  xy: 38, 2
+  size: 47, 34
+  orig: 47, 34
+  offset: 0, 0
+  index: -1
+eyeball
+  rotate: false
+  xy: 361, 276
+  size: 20, 19
+  orig: 20, 19
+  offset: 0, 0
+  index: -1
+eyeball copy 2
+  rotate: false
+  xy: 397, 358
+  size: 20, 19
+  orig: 20, 19
+  offset: 0, 0
+  index: -1
+right Hand
+  rotate: true
+  xy: 662, 289
+  size: 157, 279
+  orig: 157, 279
+  offset: 0, 0
+  index: -1

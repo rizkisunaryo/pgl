@@ -1,0 +1,125 @@
+
+Temenggung.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L_handPalm
+  rotate: true
+  xy: 1741, 398
+  size: 82, 142
+  orig: 82, 142
+  offset: 0, 0
+  index: -1
+L_hand_salam
+  rotate: true
+  xy: 1507, 270
+  size: 128, 168
+  orig: 128, 168
+  offset: 0, 0
+  index: -1
+L_lower_arm
+  rotate: false
+  xy: 1393, 270
+  size: 112, 210
+  orig: 112, 210
+  offset: 0, 0
+  index: -1
+L_upper_arm
+  rotate: false
+  xy: 1236, 245
+  size: 155, 235
+  orig: 155, 235
+  offset: 0, 0
+  index: -1
+Lower_body
+  rotate: false
+  xy: 2, 181
+  size: 559, 299
+  orig: 559, 299
+  offset: 0, 0
+  index: -1
+R_handPalm
+  rotate: true
+  xy: 1885, 378
+  size: 102, 133
+  orig: 102, 133
+  offset: 0, 0
+  index: -1
+R_hand_salam
+  rotate: true
+  xy: 1006, 146
+  size: 83, 164
+  orig: 83, 164
+  offset: 0, 0
+  index: -1
+R_lower_arm
+  rotate: true
+  xy: 1507, 400
+  size: 80, 232
+  orig: 80, 232
+  offset: 0, 0
+  index: -1
+R_upper_arm
+  rotate: true
+  xy: 251, 50
+  size: 129, 256
+  orig: 129, 256
+  offset: 0, 0
+  index: -1
+eye_pupils
+  rotate: false
+  xy: 1393, 250
+  size: 88, 18
+  orig: 88, 18
+  offset: 0, 0
+  index: -1
+eye_whites
+  rotate: true
+  xy: 509, 67
+  size: 112, 27
+  orig: 112, 27
+  offset: 0, 0
+  index: -1
+eyebrow
+  rotate: false
+  xy: 1006, 128
+  size: 82, 16
+  orig: 82, 16
+  offset: 0, 0
+  index: -1
+eyes_close
+  rotate: false
+  xy: 2, 2
+  size: 113, 30
+  orig: 113, 30
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 1006, 231
+  size: 228, 249
+  orig: 228, 249
+  offset: 0, 0
+  index: -1
+mouth_open
+  rotate: true
+  xy: 1172, 154
+  size: 75, 29
+  orig: 75, 29
+  offset: 0, 0
+  index: -1
+songkok
+  rotate: false
+  xy: 2, 34
+  size: 247, 145
+  orig: 247, 145
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 563, 128
+  size: 352, 441
+  orig: 352, 441
+  offset: 0, 0
+  index: -1

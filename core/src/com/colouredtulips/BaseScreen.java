@@ -33,9 +33,6 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
     private float xAccel=0, yAccel=0;
     private float prevXAccel=0, prevYAccel=0;
 
-    public float timer=0;
-    public boolean isTimerOn=false;
-
     public float prevDraggedX=0, prevDraggedY=0;
 
     public BaseScreen() {
@@ -104,7 +101,9 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
     public void dispose() {
         for (CustomSprite customSprite : Global.customSpriteList) {
             customSprite.getSprite().getTexture().dispose();
+//            System.out.println("Rizki Sunaryo");
         }
+        batch.dispose();
         Global.customSpriteList=new ArrayList<CustomSprite>();
         Global.skeletonAnimationList=new ArrayList<SkeletonAnimation>();
     }
@@ -160,14 +159,6 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
             skeletonAnimation.applyAnimation();
         }
     }
-    public void drawBg() {
-        if (midBg !=null)
-            midBg.getSprite().draw(batch);
-        if (bg !=null)
-            bg.getSprite().draw(batch);
-        if (foreground != null)
-            foreground.getSprite().draw(batch);
-    }
     public void moveByAcceleration() {
         if (xAccel!= -Gdx.input.getAccelerometerY()
                 || yAccel!= Gdx.input.getAccelerometerX()) {
@@ -182,6 +173,13 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
                     -Gdx.input.getAccelerometerY()<minXAccel? minXAccel : -Gdx.input.getAccelerometerY();
             yAccel= Gdx.input.getAccelerometerX()>maxYAccel? maxYAccel :
                     Gdx.input.getAccelerometerX()<minYAccel? minYAccel : Gdx.input.getAccelerometerX();
+
+            if (Math.abs(xAccel-prevXAccel)<=0.35)
+                xAccel=prevXAccel;
+            if (Math.abs(yAccel-prevYAccel)<=0.35)
+                yAccel=prevYAccel;
+
+//            System.out.println(prevXAccel+":"+xAccel+":"+prevYAccel+":"+yAccel);
 
 //            System.out.println(yAccel+":"+maxYAccel+":"+minYAccel+":"+Gdx.input.getAccelerometerX());
         }

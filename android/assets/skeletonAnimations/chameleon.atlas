@@ -1,0 +1,62 @@
+
+chameleon.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: false
+  xy: 309, 2
+  size: 305, 237
+  orig: 305, 237
+  offset: 0, 0
+  index: -1
+02
+  rotate: false
+  xy: 616, 252
+  size: 305, 253
+  orig: 305, 253
+  offset: 0, 0
+  index: -1
+03
+  rotate: false
+  xy: 309, 241
+  size: 305, 264
+  orig: 305, 264
+  offset: 0, 0
+  index: -1
+04
+  rotate: false
+  xy: 2, 225
+  size: 305, 280
+  orig: 305, 280
+  offset: 0, 0
+  index: -1
+eyeball
+  rotate: false
+  xy: 616, 168
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+tongue1
+  rotate: false
+  xy: 2, 182
+  size: 55, 41
+  orig: 55, 41
+  offset: 0, 0
+  index: -1
+tongue2
+  rotate: false
+  xy: 923, 457
+  size: 81, 48
+  orig: 81, 48
+  offset: 0, 0
+  index: -1
+tongue3
+  rotate: false
+  xy: 616, 182
+  size: 102, 68
+  orig: 102, 68
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,139 @@
+
+gasing_boy.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+eyeball
+  rotate: false
+  xy: 1014, 44
+  size: 80, 21
+  orig: 80, 21
+  offset: 0, 0
+  index: -1
+eyebrow
+  rotate: false
+  xy: 2, 23
+  size: 115, 20
+  orig: 115, 20
+  offset: 0, 0
+  index: -1
+eyelips
+  rotate: false
+  xy: 1901, 106
+  size: 102, 33
+  orig: 102, 33
+  offset: 0, 0
+  index: -1
+eyewhite
+  rotate: false
+  xy: 1901, 74
+  size: 103, 30
+  orig: 103, 30
+  offset: 0, 0
+  index: -1
+face
+  rotate: true
+  xy: 543, 22
+  size: 224, 248
+  orig: 224, 248
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 1014, 67
+  size: 243, 179
+  orig: 243, 179
+  offset: 0, 0
+  index: -1
+left_arm
+  rotate: true
+  xy: 1259, 114
+  size: 132, 276
+  orig: 132, 276
+  offset: 0, 0
+  index: -1
+left_foot
+  rotate: false
+  xy: 1403, 4
+  size: 141, 108
+  orig: 141, 108
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: true
+  xy: 1672, 61
+  size: 78, 123
+  orig: 78, 123
+  offset: 0, 0
+  index: -1
+left_leg
+  rotate: true
+  xy: 1791, 141
+  size: 105, 250
+  orig: 105, 250
+  offset: 0, 0
+  index: -1
+mouth_opensmile
+  rotate: false
+  xy: 1546, 10
+  size: 50, 22
+  orig: 50, 22
+  offset: 0, 0
+  index: -1
+mouth_smile
+  rotate: false
+  xy: 793, 28
+  size: 49, 9
+  orig: 49, 9
+  offset: 0, 0
+  index: -1
+mouth_talking
+  rotate: false
+  xy: 1672, 34
+  size: 39, 25
+  orig: 39, 25
+  offset: 0, 0
+  index: -1
+neck
+  rotate: true
+  xy: 1797, 40
+  size: 99, 102
+  orig: 99, 102
+  offset: 0, 0
+  index: -1
+right_arm
+  rotate: false
+  xy: 793, 39
+  size: 219, 207
+  orig: 219, 207
+  offset: 0, 0
+  index: -1
+right_foot
+  rotate: false
+  xy: 1259, 2
+  size: 142, 110
+  orig: 142, 110
+  offset: 0, 0
+  index: -1
+right_hand
+  rotate: false
+  xy: 1546, 34
+  size: 124, 105
+  orig: 124, 105
+  offset: 0, 0
+  index: -1
+right_leg
+  rotate: true
+  xy: 1537, 141
+  size: 105, 252
+  orig: 105, 252
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 2, 45
+  size: 201, 539
+  orig: 201, 539
+  offset: 0, 0
+  index: -1

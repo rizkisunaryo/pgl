@@ -1,0 +1,160 @@
+
+hangtuah_sitting.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+HT_eyeball
+  rotate: true
+  xy: 855, 801
+  size: 179, 37
+  orig: 179, 37
+  offset: 0, 0
+  index: -1
+HT_eyebrows
+  rotate: false
+  xy: 2, 2
+  size: 233, 53
+  orig: 233, 53
+  offset: 0, 0
+  index: -1
+HT_eyes_closed
+  rotate: false
+  xy: 1761, 1525
+  size: 218, 20
+  orig: 218, 20
+  offset: 0, 0
+  index: -1
+HT_eyewhite
+  rotate: false
+  xy: 271, 71
+  size: 245, 88
+  orig: 245, 88
+  offset: 0, 0
+  index: -1
+HT_face
+  rotate: true
+  xy: 1059, 1523
+  size: 500, 700
+  orig: 500, 700
+  offset: 0, 0
+  index: -1
+HT_hair_back
+  rotate: true
+  xy: 1761, 1547
+  size: 476, 251
+  orig: 476, 251
+  offset: 0, 0
+  index: -1
+HT_mouth
+  rotate: true
+  xy: 2014, 1945
+  size: 78, 31
+  orig: 78, 31
+  offset: 0, 0
+  index: -1
+HT_mouth_open
+  rotate: false
+  xy: 705, 635
+  size: 84, 49
+  orig: 84, 49
+  offset: 0, 0
+  index: -1
+HT_shirt
+  rotate: false
+  xy: 2, 610
+  size: 701, 875
+  orig: 701, 875
+  offset: 0, 0
+  index: -1
+Keris
+  rotate: false
+  xy: 1261, 1077
+  size: 185, 193
+  orig: 185, 193
+  offset: 0, 0
+  index: -1
+bottom
+  rotate: false
+  xy: 2, 1487
+  size: 1055, 536
+  orig: 1055, 536
+  offset: 0, 0
+  index: -1
+hand_left
+  rotate: false
+  xy: 1439, 1299
+  size: 157, 222
+  orig: 157, 222
+  offset: 0, 0
+  index: -1
+hand_left_lower
+  rotate: false
+  xy: 1099, 1068
+  size: 160, 453
+  orig: 160, 453
+  offset: 0, 0
+  index: -1
+hand_left_salam
+  rotate: false
+  xy: 1261, 1272
+  size: 176, 249
+  orig: 176, 249
+  offset: 0, 0
+  index: -1
+hand_left_upper
+  rotate: false
+  xy: 271, 161
+  size: 251, 447
+  orig: 251, 447
+  offset: 0, 0
+  index: -1
+hand_right_lower
+  rotate: false
+  xy: 937, 954
+  size: 160, 531
+  orig: 160, 531
+  offset: 0, 0
+  index: -1
+hand_right_salam
+  rotate: false
+  xy: 705, 686
+  size: 148, 294
+  orig: 148, 294
+  offset: 0, 0
+  index: -1
+hand_right_upper
+  rotate: false
+  xy: 705, 982
+  size: 230, 503
+  orig: 230, 503
+  offset: 0, 0
+  index: -1
+hand_rigth
+  rotate: false
+  xy: 1598, 1299
+  size: 157, 222
+  orig: 157, 222
+  offset: 0, 0
+  index: -1
+inner_cloth
+  rotate: false
+  xy: 2, 57
+  size: 267, 551
+  orig: 267, 551
+  offset: 0, 0
+  index: -1
+letter_sealed
+  rotate: false
+  xy: 1099, 968
+  size: 162, 98
+  orig: 162, 98
+  offset: 0, 0
+  index: -1
+sarung_upper
+  rotate: true
+  xy: 524, 129
+  size: 479, 196
+  orig: 479, 196
+  offset: 0, 0
+  index: -1

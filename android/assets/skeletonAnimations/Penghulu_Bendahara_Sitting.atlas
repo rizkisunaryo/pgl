@@ -1,0 +1,153 @@
+
+Penghulu_Bendahara_Sitting.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L_hand_salam
+  rotate: false
+  xy: 398, 66
+  size: 128, 168
+  orig: 128, 168
+  offset: 0, 0
+  index: -1
+R_hand_salam
+  rotate: false
+  xy: 1947, 858
+  size: 83, 164
+  orig: 83, 164
+  offset: 0, 0
+  index: -1
+eye_whites
+  rotate: false
+  xy: 2, 24
+  size: 140, 36
+  orig: 140, 36
+  offset: 0, 0
+  index: -1
+eyeball
+  rotate: true
+  xy: 822, 222
+  size: 108, 19
+  orig: 108, 19
+  offset: 0, 0
+  index: -1
+eyebrows
+  rotate: false
+  xy: 1110, 568
+  size: 132, 15
+  orig: 132, 15
+  offset: 0, 0
+  index: -1
+eyelips
+  rotate: false
+  xy: 1110, 585
+  size: 140, 35
+  orig: 140, 35
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 600, 332
+  size: 241, 690
+  orig: 241, 690
+  offset: 0, 0
+  index: -1
+hair_back
+  rotate: false
+  xy: 1403, 759
+  size: 385, 263
+  orig: 385, 263
+  offset: 0, 0
+  index: -1
+inner_cloth
+  rotate: false
+  xy: 843, 568
+  size: 265, 454
+  orig: 265, 454
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: true
+  xy: 843, 320
+  size: 89, 120
+  orig: 89, 120
+  offset: 0, 0
+  index: -1
+lower_torso
+  rotate: false
+  xy: 2, 236
+  size: 596, 786
+  orig: 596, 786
+  offset: 0, 0
+  index: -1
+lowerleft_arm
+  rotate: true
+  xy: 2, 62
+  size: 172, 394
+  orig: 172, 394
+  offset: 0, 0
+  index: -1
+lowerright_arm
+  rotate: true
+  xy: 1403, 640
+  size: 117, 338
+  orig: 117, 338
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 1403, 623
+  size: 74, 15
+  orig: 74, 15
+  offset: 0, 0
+  index: -1
+mouth_open 1
+  rotate: false
+  xy: 528, 209
+  size: 64, 25
+  orig: 64, 25
+  offset: 0, 0
+  index: -1
+mouth_open 2
+  rotate: true
+  xy: 1743, 683
+  size: 74, 27
+  orig: 74, 27
+  offset: 0, 0
+  index: -1
+outer_shirt
+  rotate: false
+  xy: 1110, 622
+  size: 291, 400
+  orig: 291, 400
+  offset: 0, 0
+  index: -1
+right_hand
+  rotate: true
+  xy: 965, 320
+  size: 89, 120
+  orig: 89, 120
+  offset: 0, 0
+  index: -1
+tengkolok
+  rotate: true
+  xy: 600, 2
+  size: 328, 220
+  orig: 328, 220
+  offset: 0, 0
+  index: -1
+upperleft_arm
+  rotate: false
+  xy: 1790, 761
+  size: 155, 261
+  orig: 155, 261
+  offset: 0, 0
+  index: -1
+upperright_arm
+  rotate: true
+  xy: 843, 411
+  size: 155, 282
+  orig: 155, 282
+  offset: 0, 0
+  index: -1

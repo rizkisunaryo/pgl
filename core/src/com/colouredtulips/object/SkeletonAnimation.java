@@ -114,6 +114,8 @@ public class SkeletonAnimation extends BaseObject{
     }
 
     public void setAnimation(int trackIndex, String animationName, boolean loop) {
+        state.clearTracks();
+        skeleton.setToSetupPose();
         state.setAnimation(trackIndex,animationName,loop);
     }
     public void addAnimation(int trackIndex, String animationName, boolean loop, float delay) {

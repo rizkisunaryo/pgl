@@ -13,6 +13,8 @@ public class BaseObject {
     private float oriX;
     private float oriY;
 
+    private float oriScale;
+
     private boolean isTouched;
     private boolean isDragged;
     private boolean isReleased;
@@ -107,6 +109,14 @@ public class BaseObject {
     public void setOriPos(float x, float y) {
         this.oriX = x;
         this.oriY = y;
+    }
+
+    public float getOriScale() {
+        return oriScale;
+    }
+
+    public void setOriScale(float oriScale) {
+        this.oriScale = oriScale;
     }
 
     public void moveTo(float toX, float toY, float t) {

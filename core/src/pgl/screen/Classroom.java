@@ -2,6 +2,7 @@ package pgl.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.colouredtulips.BaseScreen;
 import com.colouredtulips.Constants;
@@ -14,11 +15,19 @@ import com.colouredtulips.object.SkeletonAnimation;
  * Created by rizkisunaryo on 1/14/15.
  */
 public class Classroom extends BaseScreen {
-    private final static float MAIN_GIRL_HEIGHT_TOLERANCE =180;
-    private final static float MAIN_GIRL_MIN_X=430;
-    private final static float MAIN_GIRL_MAX_X=1200;
+    private final int GLOBE_NUMBER=16;
+    private final float TEACHER_CENTER_Y = 350;
+    private final float MAIN_GIRL_HEIGHT_TOLERANCE =180;
+    private final float MAIN_GIRL_MIN_X=430;
+    private final float MAIN_GIRL_MAX_X=1200;
 
+    private ShapeRenderer shapeRenderer;
+
+    private CustomSprite globeArray[] = new CustomSprite[GLOBE_NUMBER];
+    private int globeCounter=0;
+    private boolean isGlobeTimerOn=false;
     private SkeletonAnimation teacher;
+    private float teacherCVar;
     private SkeletonAnimation student2;
     private CustomSprite emptyTable;
     private SkeletonAnimation student3;
@@ -27,26 +36,25 @@ public class Classroom extends BaseScreen {
     private SkeletonAnimation mainGirl;
     private CustomSprite historyBookFront;
 
-    private float timer=0;
-    private boolean isTimerOn=false;
-
-    @Override
-    public void resize(int width, int height) {
-        super.resize(width,height);
-    }
-    @Override
-    public void dispose() {
-        super.dispose();
-    }
+    private float historyBookTimer =0;
+    private boolean isHistoryBookTimerOn =false;
 
     public Classroom() {
         super();
 
+        shapeRenderer = new ShapeRenderer();
+
         midBg = new CustomSprite("classroom_midbg.png", 650, 341, 1.5f, Constants.MAX_ACCELERATION_SPEED);
 
         bg = new CustomSprite("classroom_bg.png", Constants.STANDARD_BG_X, 0, 1.2f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        for (int i1= GLOBE_NUMBER -1; i1>=0; i1--) {
+            globeArray[i1]=new CustomSprite("classroom_globe_"+i1+".png", 910, 520, 0f, Constants.MAX_ACCELERATION_SPEED/3*2);
+            globeArray[i1].setOriScale(1.5f);
+        }
+        globeArray[0].setScale(globeArray[0].getOriScale());
 
         teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", Constants.MAX_ACCELERATION_SPEED/3);
+        teacherCVar = teacher.getCurX() - (teacher.getCurY() + TEACHER_CENTER_Y);
         student2=new SkeletonAnimation("student2", 0.7f, 760, 147, "breath", Constants.MAX_ACCELERATION_SPEED/3);
         emptyTable = new CustomSprite("classroom_empty_table.png", 442, 35, 1, Constants.MAX_ACCELERATION_SPEED/3);
         student4=new SkeletonAnimation("student4", 1.4f, 1090, 180, "breathing", Constants.MAX_ACCELERATION_SPEED/3);
@@ -56,7 +64,7 @@ public class Classroom extends BaseScreen {
         mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", Constants.MAX_ACCELERATION_SPEED/3);
         mainGirl.setHeightTolerance(MAIN_GIRL_HEIGHT_TOLERANCE);
         historyBookFront = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
-        historyBookFront.setOriPos(historyBookFront.getX(),historyBookFront.getY());
+        historyBookFront.setOriPos(historyBookFront.getX(), historyBookFront.getY());
         historyBookFront.getSprite().setScale(0);
     }
 
@@ -64,7 +72,7 @@ public class Classroom extends BaseScreen {
     public void render(float delta) {
         updateAnimations();
 
-        Gdx.gl.glClearColor(1,0,0,1);
+        Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         applyAnimations();
@@ -74,7 +82,13 @@ public class Classroom extends BaseScreen {
         batch.begin();
         batch.setProjectionMatrix(camera.combined);
 
-        drawBg();
+
+        midBg.getSprite().draw(batch);
+
+        bg.getSprite().draw(batch);
+        for (int i1= GLOBE_NUMBER -1; i1>=0; i1--)
+            globeArray[i1].getSprite().draw(batch);
+
         renderer.draw(batch, teacher.getSkeleton());
         renderer.draw(batch, student2.getSkeleton());
         emptyTable.getSprite().draw(batch);
@@ -84,15 +98,29 @@ public class Classroom extends BaseScreen {
         renderer.draw(batch, mainGirl.getSkeleton());
         historyBookFront.getSprite().draw(batch);
 
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(0, 0, 0, 0.2f);
+        shapeRenderer.rect(0, 0, Global.worldVirtualWidth*2, Global.worldVirtualHeight*2);
+        shapeRenderer.end();
+
         moveByAcceleration();
 
-        if (isTimerOn) {
-            timer+=Gdx.graphics.getDeltaTime();
-            if (timer>0.17) {
+        if (isGlobeTimerOn) {
+            globeArray[globeCounter].setScale(0);
+            if (globeCounter>= GLOBE_NUMBER -1) {
+                globeCounter= -1;
+                isGlobeTimerOn=false;
+            }
+            globeCounter++;
+            globeArray[globeCounter].setScale(globeArray[globeCounter].getOriScale());
+        }
+        if (isHistoryBookTimerOn) {
+            historyBookTimer +=Gdx.graphics.getDeltaTime();
+            if (historyBookTimer >0.17) {
                 historyBookFront.getSprite().setScale(0);
                 historyBook.getSprite().setScale(1);
-                isTimerOn=false;
-                timer=0;
+                isHistoryBookTimerOn =false;
+                historyBookTimer =0;
             }
         }
 
@@ -112,6 +140,12 @@ public class Classroom extends BaseScreen {
             historyBookFront.getSprite().setScale(1);
             historyBookFront.setTouched(true);
         }
+        else if (teacher.contains(stageVector.x,stageVector.y)) {
+            teacher.setTouched(true);
+        }
+        else if (globeArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            globeArray[0].setTouched(true);
+        }
 
         return true;
     }
@@ -123,12 +157,14 @@ public class Classroom extends BaseScreen {
             float x=stageVector.x>MAIN_GIRL_MAX_X? MAIN_GIRL_MAX_X :
                     stageVector.x<MAIN_GIRL_MIN_X? MAIN_GIRL_MIN_X : stageVector.x;
 
-            if (stageVector.x<MAIN_GIRL_MIN_X || stageVector.x<prevDraggedX) {
+            if (!mainGirl.isDragged()) {
+                mainGirl.setAnimation(0,"walking",true);
+                mainGirl.setDragged(true);
+            }
+
+            if (stageVector.x<MAIN_GIRL_MIN_X || stageVector.x<prevDraggedX)
                 mainGirl.getSkeleton().setFlipX(false);
-            }
-            else {
-                mainGirl.getSkeleton().setFlipX(true);
-            }
+            else mainGirl.getSkeleton().setFlipX(true);
 
 //            System.out.println(x+":"+mainGirl.getY());
 
@@ -138,6 +174,26 @@ public class Classroom extends BaseScreen {
         else if (historyBookFront.isTouched()) {
             historyBookFront.setCurPos(stageVector.x,stageVector.y);
             historyBookFront.setPosition(stageVector.x, stageVector.y);
+        }
+        else if (teacher.isTouched()) {
+            if (!teacher.isDragged()) {
+                teacher.setAnimation(0,"walk",true);
+                teacher.setDragged(true);
+            }
+
+            float teacherY = stageVector.y;
+            float teacherTopY = 220 + TEACHER_CENTER_Y;
+            float teacherBottomY = 93 + TEACHER_CENTER_Y;
+            if (teacherY>teacherTopY) {
+                teacherY = teacherTopY;
+            }
+            else if (teacherY<teacherBottomY) {
+                teacherY = teacherBottomY;
+            }
+
+            float teacherX = teacherCVar + teacherY;
+            teacher.setCurPos(teacherX, teacherY-TEACHER_CENTER_Y);
+            teacher.setPosition(teacherX, teacherY-TEACHER_CENTER_Y);
         }
 
         prevDraggedX = stageVector.x;
@@ -149,14 +205,28 @@ public class Classroom extends BaseScreen {
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         stageVector = camera.unproject(new Vector3(screenX,screenY,0));
 
-        if (historyBookFront.isTouched()) {
+        if (mainGirl.isTouched()) {
+            mainGirl.setDragged(false);
+            mainGirl.setAnimation(0,"breath",true);
+        }
+        else if (historyBookFront.isTouched()) {
             if (mainGirl.contains(stageVector.x, stageVector.y)) {
+                dispose();
                 Main.main.setScreen(new Palace());
+                return true;
             }
             else {
                 historyBookFront.setCurPos(historyBookFront.getOriX(), historyBookFront.getOriY());
-                isTimerOn=true;
+                isHistoryBookTimerOn =true;
             }
+        }
+        else if (teacher.isTouched()) {
+            teacher.setDragged(false);
+            teacher.setAnimation(0,"breath",true);
+        }
+        else if (globeArray[0].isTouched() &&
+                globeArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            isGlobeTimerOn=true;
         }
 
         for (CustomSprite customSprite : Global.customSpriteList) {
