@@ -41,7 +41,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p3;
         else
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p7;
-        Global.widthPer = Global.worldVirtualWidth/100;
+        Global.widthPer = Global.worldVirtualWidth/100.0f;
 
         batch = new PolygonSpriteBatch();
         renderer = new SkeletonRenderer();
@@ -183,6 +183,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 //            System.out.println(prevXAccel+":"+xAccel+":"+prevYAccel+":"+yAccel);
 
 //            System.out.println(yAccel+":"+maxYAccel+":"+minYAccel+":"+Gdx.input.getAccelerometerX());
+
         }
 
         for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {

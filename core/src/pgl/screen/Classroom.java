@@ -3,6 +3,7 @@ package pgl.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.colouredtulips.BaseScreen;
 import com.colouredtulips.Constants;
@@ -17,6 +18,7 @@ import com.colouredtulips.object.SkeletonAnimation;
 public class Classroom extends BaseScreen {
     private final int WINDOW_NUMBER=2;
     private final int GLOBE_NUMBER=16;
+    private final int DRAWING_NUMBER=3;
     private final float TEACHER_CENTER_Y = 350;
     private final float MAIN_GIRL_HEIGHT_TOLERANCE =180;
     private final float MAIN_GIRL_MIN_X=430;
@@ -26,6 +28,13 @@ public class Classroom extends BaseScreen {
     private short windowState=0;
     private CustomSprite globeArray[];
     private int globeCounter=0;
+    private CustomSprite drawingRope;
+    private Rectangle drawingRopeRect;
+    private CustomSprite deerDrawing;
+    private CustomSprite flowerDrawing;
+    private CustomSprite puteriDrawing;
+    private float drawingDestArray[][];
+    private boolean drawingPosFixed[];
     private boolean isGlobeTimerOn=false;
     private SkeletonAnimation teacher;
     private float teacherCVar;
@@ -67,6 +76,24 @@ public class Classroom extends BaseScreen {
             globeArray[i1].setOriScale(1.5f);
         }
         globeArray[0].setScale(globeArray[0].getOriScale());
+        drawingRope = new CustomSprite("classroom_drawing_rope.png", 35f*Global.widthPer, 61.5f*Global.heightPer, 1f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        drawingRopeRect = new Rectangle(drawingRope.getX()-drawingRope.getWidth()/2,
+                drawingRope.getY()-drawingRope.getHeight()*1.5f,
+                drawingRope.getWidth()*2, drawingRope.getHeight()*4);
+        deerDrawing = new CustomSprite("classroom_drawing_deer.png", 78*Global.widthPer, 51.5f*Global.heightPer, 1f, Constants.MAX_ACCELERATION_SPEED/3*2);
+//        deerDrawing = new CustomSprite("classroom_drawing_deer.png", 35*Global.widthPer, 61.5f*Global.heightPer, 1f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        deerDrawing.setOriPos(deerDrawing.getCurX(),deerDrawing.getCurY());
+        flowerDrawing = new CustomSprite("classroom_drawing_flower.png", 85*Global.widthPer, 51.5f*Global.heightPer, 1f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        flowerDrawing.setOriPos(flowerDrawing.getCurX(),flowerDrawing.getCurY());
+        puteriDrawing = new CustomSprite("classroom_drawing_puteri.png", 83*Global.widthPer, 50.5f*Global.heightPer, 1f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        puteriDrawing.setOriPos(puteriDrawing.getCurX(),puteriDrawing.getCurY());
+        drawingDestArray = new float[DRAWING_NUMBER][2];
+        drawingDestArray[0][0]=36*Global.widthPer; drawingDestArray[0][1]=54*Global.heightPer;
+        drawingDestArray[1][0]=43.6f*Global.widthPer; drawingDestArray[1][1]=53.2f*Global.heightPer;
+        drawingDestArray[2][0]=50.4f*Global.widthPer; drawingDestArray[2][1]=53.2f*Global.heightPer;
+        drawingPosFixed = new boolean[DRAWING_NUMBER];
+        for (int i1=0; i1<=DRAWING_NUMBER-1; i1++)
+            drawingPosFixed[i1]=false;
 
         teacher=new SkeletonAnimation("teacher", 0.75f, 325, 117, "breath", Constants.MAX_ACCELERATION_SPEED/3);
         teacherCVar = teacher.getCurX() - (teacher.getCurY() + TEACHER_CENTER_Y);
@@ -105,6 +132,10 @@ public class Classroom extends BaseScreen {
             windowArray[i1].getSprite().draw(batch);
         for (int i1= GLOBE_NUMBER -1; i1>=0; i1--)
             globeArray[i1].getSprite().draw(batch);
+        drawingRope.getSprite().draw(batch);
+        deerDrawing.getSprite().draw(batch);
+        flowerDrawing.getSprite().draw(batch);
+        puteriDrawing.getSprite().draw(batch);
 
         renderer.draw(batch, teacher.getSkeleton());
         renderer.draw(batch, student2.getSkeleton());
@@ -143,6 +174,8 @@ public class Classroom extends BaseScreen {
             }
         }
 
+//        System.out.println(flowerDrawing.getX()+":"+flowerDrawing.getY());
+
         batch.end();
     }
 
@@ -168,6 +201,15 @@ public class Classroom extends BaseScreen {
         else if (windowArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y) ||
                 windowArray[1].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
             windowArray[0].setTouched(true);
+        }
+        else if (puteriDrawing.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            puteriDrawing.setTouched(true);
+        }
+        else if (flowerDrawing.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            flowerDrawing.setTouched(true);
+        }
+        else if (deerDrawing.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            deerDrawing.setTouched(true);
         }
 
         return true;
@@ -218,6 +260,18 @@ public class Classroom extends BaseScreen {
             teacher.setCurPos(teacherX, teacherY-TEACHER_CENTER_Y);
             teacher.setPosition(teacherX, teacherY-TEACHER_CENTER_Y);
         }
+        else if (puteriDrawing.isTouched()) {
+            puteriDrawing.setCurPos(stageVector.x,stageVector.y);
+            puteriDrawing.setPosition(stageVector.x, stageVector.y);
+        }
+        else if (flowerDrawing.isTouched()) {
+            flowerDrawing.setCurPos(stageVector.x,stageVector.y);
+            flowerDrawing.setPosition(stageVector.x,stageVector.y);
+        }
+        else if (deerDrawing.isTouched()) {
+            deerDrawing.setCurPos(stageVector.x,stageVector.y);
+            deerDrawing.setPosition(stageVector.x,stageVector.y);
+        }
 
         prevDraggedX = stageVector.x;
         prevDraggedY = stageVector.y;
@@ -265,6 +319,18 @@ public class Classroom extends BaseScreen {
                 windowArray[0].setScale(1);
             }
         }
+        else if (puteriDrawing.isTouched()) {
+//            System.out.println(stageVector.x+":"+stageVector.y);
+            moveDrawing(puteriDrawing,2,stageVector.x,stageVector.y);
+        }
+        else if (flowerDrawing.isTouched()) {
+//            System.out.println(stageVector.x+":"+stageVector.y);
+            moveDrawing(flowerDrawing,1,stageVector.x,stageVector.y);
+        }
+        else if (deerDrawing.isTouched()) {
+//            System.out.println(stageVector.x+":"+stageVector.y);
+            moveDrawing(deerDrawing,0,stageVector.x,stageVector.y);
+        }
 
         for (CustomSprite customSprite : Global.customSpriteList) {
             customSprite.setTouched(false);
@@ -273,5 +339,22 @@ public class Classroom extends BaseScreen {
             skeletonAnimation.setTouched(false);
         }
         return true;
+    }
+
+    private void moveDrawing(CustomSprite drawing, int drawingIndex, float x, float y) {
+//        System.out.println(drawingRopeRect.getX()
+//        +":"+drawingRopeRect.getY()
+//        +":"+x+":"+y);
+        if (drawingRopeRect.contains(x,y))
+            drawingPosFixed[drawingIndex]=true;
+
+        float curX = drawing.getOriX();
+        float curY = drawing.getOriY();
+
+        if (drawingPosFixed[drawingIndex]) {
+            curX = drawingDestArray[drawingIndex][0];
+            curY = drawingDestArray[drawingIndex][1];
+        }
+        drawing.setCurPos(curX,curY);
     }
 }

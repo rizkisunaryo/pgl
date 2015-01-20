@@ -14,7 +14,7 @@ public class Global {
     public static float worldVirtualWidth;
     public static float worldVirtualHeight=Constants.WORLD_VIRTUAL_HEIGHT;
     public static float widthPer;
-    public static float heightPer=worldVirtualHeight/100;
+    public static float heightPer=worldVirtualHeight/100.0f;
     public static List<CustomSprite> customSpriteList = new ArrayList<CustomSprite>();
     public static List<SkeletonAnimation> skeletonAnimationList = new ArrayList<SkeletonAnimation>();
 }
