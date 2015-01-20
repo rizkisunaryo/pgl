@@ -41,6 +41,7 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p3;
         else
             Global.worldVirtualWidth=Constants.WORLD_VIRTUAL_WIDTH_1p7;
+        Global.widthPer = Global.worldVirtualWidth/100;
 
         batch = new PolygonSpriteBatch();
         renderer = new SkeletonRenderer();

@@ -15,15 +15,16 @@ import com.colouredtulips.object.SkeletonAnimation;
  * Created by rizkisunaryo on 1/14/15.
  */
 public class Classroom extends BaseScreen {
+    private final int WINDOW_NUMBER=2;
     private final int GLOBE_NUMBER=16;
     private final float TEACHER_CENTER_Y = 350;
     private final float MAIN_GIRL_HEIGHT_TOLERANCE =180;
     private final float MAIN_GIRL_MIN_X=430;
     private final float MAIN_GIRL_MAX_X=1200;
 
-    private ShapeRenderer shapeRenderer;
-
-    private CustomSprite globeArray[] = new CustomSprite[GLOBE_NUMBER];
+    private CustomSprite windowArray[];
+    private short windowState=0;
+    private CustomSprite globeArray[];
     private int globeCounter=0;
     private boolean isGlobeTimerOn=false;
     private SkeletonAnimation teacher;
@@ -36,6 +37,8 @@ public class Classroom extends BaseScreen {
     private SkeletonAnimation mainGirl;
     private CustomSprite historyBookFront;
 
+    private ShapeRenderer shapeRenderer;
+
     private float historyBookTimer =0;
     private boolean isHistoryBookTimerOn =false;
 
@@ -47,8 +50,20 @@ public class Classroom extends BaseScreen {
         midBg = new CustomSprite("classroom_midbg.png", 650, 341, 1.5f, Constants.MAX_ACCELERATION_SPEED);
 
         bg = new CustomSprite("classroom_bg.png", Constants.STANDARD_BG_X, 0, 1.2f, Constants.MAX_ACCELERATION_SPEED/3*2);
+        windowArray = new CustomSprite[WINDOW_NUMBER];
+        String windowSuffix="";
+        for (int i1=0; i1<=WINDOW_NUMBER-1; i1++) {
+            if (i1==0)
+                windowSuffix="closed";
+            else
+                windowSuffix="open";
+            windowArray[i1]=new CustomSprite("classroom_window_"+windowSuffix+".png", 57f*Global.widthPer, 56*Global.heightPer, 0f, Constants.MAX_ACCELERATION_SPEED/3*2);
+//            windowArray[i1].getSprite().setOrigin(0,0);
+        }
+        windowArray[0].setScale(1);
+        globeArray = new CustomSprite[GLOBE_NUMBER];
         for (int i1= GLOBE_NUMBER -1; i1>=0; i1--) {
-            globeArray[i1]=new CustomSprite("classroom_globe_"+i1+".png", 910, 520, 0f, Constants.MAX_ACCELERATION_SPEED/3*2);
+            globeArray[i1]=new CustomSprite("classroom_globe_"+i1+".png", 68*Global.widthPer, 52*Global.heightPer, 0f, Constants.MAX_ACCELERATION_SPEED/3*2);
             globeArray[i1].setOriScale(1.5f);
         }
         globeArray[0].setScale(globeArray[0].getOriScale());
@@ -86,6 +101,8 @@ public class Classroom extends BaseScreen {
         midBg.getSprite().draw(batch);
 
         bg.getSprite().draw(batch);
+        for (int i1=0; i1<=WINDOW_NUMBER-1; i1++)
+            windowArray[i1].getSprite().draw(batch);
         for (int i1= GLOBE_NUMBER -1; i1>=0; i1--)
             globeArray[i1].getSprite().draw(batch);
 
@@ -98,10 +115,12 @@ public class Classroom extends BaseScreen {
         renderer.draw(batch, mainGirl.getSkeleton());
         historyBookFront.getSprite().draw(batch);
 
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0, 0, 0, 0.2f);
-        shapeRenderer.rect(0, 0, Global.worldVirtualWidth*2, Global.worldVirtualHeight*2);
-        shapeRenderer.end();
+        if (windowState==0) {
+            shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+            shapeRenderer.setColor(0, 0, 0, 0.2f);
+            shapeRenderer.rect(0, 0, Global.worldVirtualWidth * 2, Global.worldVirtualHeight * 2);
+            shapeRenderer.end();
+        }
 
         moveByAcceleration();
 
@@ -145,6 +164,10 @@ public class Classroom extends BaseScreen {
         }
         else if (globeArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
             globeArray[0].setTouched(true);
+        }
+        else if (windowArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y) ||
+                windowArray[1].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            windowArray[0].setTouched(true);
         }
 
         return true;
@@ -227,6 +250,20 @@ public class Classroom extends BaseScreen {
         else if (globeArray[0].isTouched() &&
                 globeArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
             isGlobeTimerOn=true;
+        }
+        else if (windowArray[0].isTouched() &&
+                (windowArray[0].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y) ||
+                        windowArray[1].getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y))) {
+            if (windowState==0) {
+                windowState=1;
+                windowArray[0].setScale(0);
+                windowArray[1].setScale(1);
+            }
+            else {
+                windowState=0;
+                windowArray[1].setScale(0);
+                windowArray[0].setScale(1);
+            }
         }
 
         for (CustomSprite customSprite : Global.customSpriteList) {
