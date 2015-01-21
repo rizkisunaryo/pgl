@@ -15,10 +15,6 @@ public class Main extends Game {
         this.actionResolver = actionResolver;
     }
 
-    public Main() {
-
-    }
-
     @Override
     public void create () {
         main=this;
