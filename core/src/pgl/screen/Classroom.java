@@ -43,6 +43,7 @@ public class Classroom extends BaseScreen {
     private SkeletonAnimation student3;
     private SkeletonAnimation student4;
     private CustomSprite historyBook;
+    private CustomSprite takrawBall;
     private SkeletonAnimation mainGirl;
     private CustomSprite historyBookFront;
 
@@ -103,6 +104,7 @@ public class Classroom extends BaseScreen {
         student3=new SkeletonAnimation("student3", 0.7f, 1090, 35, "breath_bookclose", Constants.MAX_ACCELERATION_SPEED/3);
         historyBook = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
         historyBook.setOriPos(historyBook.getX(),historyBook.getY());
+        takrawBall = new CustomSprite("classroom_takraw_ball.png", 22*Global.widthPer, 5*Global.heightPer, 1, Constants.MAX_ACCELERATION_SPEED/3);
         mainGirl=new SkeletonAnimation("main_school_girl", 0.7f, 884, 10, "breath", Constants.MAX_ACCELERATION_SPEED/3);
         mainGirl.setHeightTolerance(MAIN_GIRL_HEIGHT_TOLERANCE);
         historyBookFront = new CustomSprite("classroom_book1.png", 565, 300, 1, Constants.MAX_ACCELERATION_SPEED/3);
@@ -185,6 +187,9 @@ public class Classroom extends BaseScreen {
 
         if (mainGirl.contains(stageVector.x,stageVector.y)) {
             mainGirl.setTouched(true);
+        }
+        else if (takrawBall.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
+            takrawBall.setTouched(true);
         }
         else if (historyBook.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {
 //            historyBook.setTouched(true);

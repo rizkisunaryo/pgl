@@ -184,6 +184,14 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
 
 //            System.out.println(yAccel+":"+maxYAccel+":"+minYAccel+":"+Gdx.input.getAccelerometerX());
 
+            for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
+                skeletonAnimation.setMoveToTimer(0);
+            }
+
+            for (CustomSprite customSprite : Global.customSpriteList) {
+                customSprite.setMoveToTimer(0);
+            }
+
         }
 
         for (SkeletonAnimation skeletonAnimation : Global.skeletonAnimationList) {
@@ -191,8 +199,6 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
                 skeletonAnimation.moveTo(skeletonAnimation.getCurX()+ xAccel*skeletonAnimation.getAccelSpeed(),
                         skeletonAnimation.getCurY()+ yAccel *skeletonAnimation.getAccelSpeed(),
                         Constants.ACCELERATION_INTERVAL);
-            else
-                skeletonAnimation.setMoveToTimer(0);
         }
 
         for (CustomSprite customSprite : Global.customSpriteList) {
@@ -200,8 +206,6 @@ public class BaseScreen implements Screen,InputProcessor,ApplicationListener {
                 customSprite.moveTo(customSprite.getCurX()+ xAccel*customSprite.getAccelSpeed(),
                         customSprite.getCurY()+ yAccel *customSprite.getAccelSpeed(),
                         Constants.ACCELERATION_INTERVAL);
-            else
-                customSprite.setMoveToTimer(0);
         }
     }
 }
