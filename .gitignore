@@ -71,7 +71,6 @@ android/ic_launcher-web.png
 android/proguard-project.txt
 android/project.properties
 android/res/drawable-hdpi/
-build.gradle
 core/build.gradle
 core/src/Main.gwt.xml
 desktop/build.gradle
