@@ -15,16 +15,16 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
     Tracker tracker;
     Tracker globalTracker;
 
-	@Override
-	protected void onCreate (Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		initialize(new Main(this), config);
+    @Override
+    protected void onCreate (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+        initialize(new Main(this), config);
 
         myApplication = (MyApplication) getApplication();
         tracker = myApplication.getTracker(MyApplication.TrackerName.APP_TRACKER);
         globalTracker = myApplication.getTracker(MyApplication.TrackerName.GLOBAL_TRACKER);
-	}
+    }
 
     @Override
     protected void onStart() {

@@ -186,7 +186,7 @@ public class Classroom extends BaseScreen {
         stageVector = camera.unproject(new Vector3(screenX,screenY,0));
 
         if (mainGirl.contains(stageVector.x,stageVector.y)) {
-            Main.actionResolver.setTrackerScreenName("Classroom.mainGirl");
+            Main.actionResolver.setTrackerScreenName("iosTest");
             mainGirl.setTouched(true);
         }
         else if (takrawBall.getSprite().getBoundingRectangle().contains(stageVector.x,stageVector.y)) {

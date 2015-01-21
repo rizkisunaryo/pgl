@@ -71,7 +71,6 @@ android/ic_launcher-web.png
 android/proguard-project.txt
 android/project.properties
 android/res/drawable-hdpi/
-build.gradle
 core/build.gradle
 core/src/Main.gwt.xml
 desktop/build.gradle
@@ -83,5 +82,7 @@ html/
 ios/Info.plist.xml
 ios/data/
 ios/robovm.properties
-ios/robovm.xml
 settings.gradle
+
+!ios/build/libs/
+!ios/build/libs/ios/
