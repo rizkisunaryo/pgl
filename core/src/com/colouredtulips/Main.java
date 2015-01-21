@@ -9,6 +9,11 @@ import pgl.screen.Classroom;
  */
 public class Main extends Game {
     public static Main main;
+    public static ActionResolver actionResolver;
+
+    public Main(ActionResolver actionResolver) {
+        this.actionResolver = actionResolver;
+    }
 
     @Override
     public void create () {
